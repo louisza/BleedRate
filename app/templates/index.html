@@ -746,6 +746,39 @@
             }, 100);
         }
     }
+
+    // Privacy: Mask income input fields on blur
+    document.addEventListener('DOMContentLoaded', function() {
+        const sensitiveFields = ['annual_salary', 'annual_bonus'];
+
+        sensitiveFields.forEach(fieldName => {
+            const field = document.querySelector(`input[name="${fieldName}"]`);
+            if (!field) return;
+
+            // Store original value in data attribute
+            field.dataset.originalValue = '';
+            field.dataset.isMasked = 'false';
+
+            // On blur: mask the value
+            field.addEventListener('blur', function() {
+                const value = this.value;
+                if (value && value !== '') {
+                    this.dataset.originalValue = value;
+                    this.dataset.isMasked = 'true';
+                    this.type = 'password';
+                }
+            });
+
+            // On focus: restore the original value
+            field.addEventListener('focus', function() {
+                if (this.dataset.isMasked === 'true') {
+                    this.type = 'number';
+                    this.value = this.dataset.originalValue;
+                    this.dataset.isMasked = 'false';
+                }
+            });
+        });
+    });
 </script>
 
 {% endblock %}

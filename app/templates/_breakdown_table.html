@@ -2,12 +2,12 @@
     <h2 class="text-3xl font-black text-red-500 mb-8 uppercase tracking-wider flex items-center">
         💸 YOUR ANNUAL BLEED TO GOVERNMENT
     </h2>
-    
+
     <!-- MASSIVE Total Display -->
     <div class="bg-gradient-to-br from-red-900 via-red-800 to-red-900 rounded-xl p-8 mb-8 border-4 border-red-500 shadow-2xl relative overflow-hidden">
         <!-- Animated background pattern -->
         <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #ff0000 10px, #ff0000 20px);"></div>
-        
+
         <div class="relative z-10">
             <p class="text-red-300 text-sm font-bold uppercase tracking-widest mb-2 animate-pulse">⚠️ TOTAL EXTRACTED ANNUALLY ⚠️</p>
             <p class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight" style="text-shadow: 0 0 30px rgba(239, 68, 68, 0.8), 0 0 60px rgba(239, 68, 68, 0.5);">
@@ -91,19 +91,18 @@
     <div class="mt-8 bg-gradient-to-r from-red-950 to-red-900 border-4 border-red-600 rounded-lg p-6 relative overflow-hidden">
         <!-- Warning stripe pattern -->
         <div class="absolute inset-0 opacity-5" style="background: repeating-linear-gradient(-45deg, transparent, transparent 20px, #fef08a 20px, #fef08a 40px);"></div>
-        
+
         <div class="relative z-10">
             <div class="flex items-center gap-3 mb-3">
                 <span class="text-4xl">⚠️</span>
                 <h3 class="text-2xl font-black text-red-400 uppercase tracking-wider">THE SHOCKING REALITY</h3>
             </div>
             <p class="text-lg text-gray-200 leading-relaxed">
-                <strong class="text-red-300">{{ "{:.1f}".format(effective_rate) }}%</strong> of your gross income 
-                (R <strong class="text-white">{{ "{:,.0f}".format(gross_income) }}</strong>) is extracted by government.
+                <strong class="text-red-300">{{ "{:.1f}".format(effective_rate) }}%</strong> of your gross income is extracted by government.
             </p>
             <p class="text-lg text-gray-200 leading-relaxed mt-3">
-                That's <strong class="text-red-300">R {{ "{:,.2f}".format(monthly_total) }}</strong> every month, 
-                or <strong class="text-red-300">R {{ "{:,.2f}".format(total / 365) }}</strong> <em>every single day</em> 
+                That's <strong class="text-red-300">R {{ "{:,.2f}".format(monthly_total) }}</strong> every month,
+                or <strong class="text-red-300">R {{ "{:,.2f}".format(total / 365) }}</strong> <em>every single day</em>
                 flowing from your pocket to government coffers.
             </p>
             <p class="text-sm text-red-400 mt-4 font-bold uppercase tracking-wider">
