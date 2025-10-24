@@ -2,42 +2,42 @@
 
 {% block content %}
 <div class="max-w-7xl mx-auto px-4 py-8">
-    
-    <!-- Shocking Stats Banner -->
-    <div class="warning-stripe border-4 border-yellow-600 rounded-lg p-6 mb-8 shadow-2xl">
+
+    <!-- Information Banner -->
+    <div class="bg-gradient-to-r from-slate-800 to-slate-700 border-2 border-blue-500 rounded-lg p-6 mb-8 shadow-lg">
         <div class="text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-3">
-                &#128680; THE TRUTH THEY DON'T ADVERTISE &#128680;
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                💡 Know Your Complete Tax Footprint
             </h2>
-            <p class="text-xl text-gray-800 font-bold mb-2">
-                The average South African pays <span class="text-red-600 text-2xl">40-60%</span> of their money to government
+            <p class="text-lg text-gray-300 mb-2">
+                Most South Africans pay <span class="text-blue-400 font-semibold">40-60%</span> of their income to government through various taxes
             </p>
-            <p class="text-gray-700 font-semibold">
-                Not just income tax. EVERYTHING. Hidden taxes in every purchase, every service, every transaction.
+            <p class="text-gray-400">
+                Beyond PAYE: VAT, fuel levies, sin taxes, municipal fees, and more add up quickly.
             </p>
-            <p class="text-sm text-gray-600 mt-3 font-mono">
-                &#128071; Enter your details below to see YOUR personal BleedRate &#128071;
+            <p class="text-sm text-gray-500 mt-4 italic">
+                Enter your details below to calculate your personal tax burden
             </p>
         </div>
     </div>
 
     <!-- Collapsible Input Form Section -->
-    <div id="input-section" class="bg-slate-900 rounded-lg shadow-2xl p-6 mb-8 border-2 border-red-600 neon-border">
+    <div id="input-section" class="bg-slate-900 rounded-lg shadow-xl p-6 mb-8 border-2 border-slate-700">
         <div class="flex justify-between items-center mb-6">
             <div>
-                <h2 class="text-3xl font-black text-white mb-2">&#128176; CALCULATE YOUR BLEED</h2>
-                <p class="text-gray-300 font-semibold">
-                    Be brave. Enter your real numbers. See where EVERY RAND goes.
+                <h2 class="text-3xl font-bold text-white mb-2">💰 Tax Calculator</h2>
+                <p class="text-gray-300">
+                    Enter your financial details to see your complete tax breakdown
                 </p>
             </div>
-            <button type="button" id="toggle-form-btn" onclick="toggleInputForm()" 
-                    class="hidden bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg border-2 border-red-500 transition font-bold">
-                &#9660; EDIT YOUR INPUTS
+            <button type="button" id="toggle-form-btn" onclick="toggleInputForm()"
+                    class="hidden bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg border-2 border-slate-600 transition font-semibold">
+                ✏️ Edit Your Inputs
             </button>
         </div>
 
         <form id="calc-form" hx-post="/calc" hx-target="#results" hx-swap="innerHTML" class="space-y-6">
-            
+
             <!-- Personal Income Section -->
             <div class="border-l-4 border-emerald-500 pl-4 bg-slate-800 p-4 rounded-r-lg">
                 <h3 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center">
@@ -47,29 +47,29 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Annual Salary (R)</label>
-                        <input type="number" name="annual_salary" required min="0" step="1000" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white font-mono text-lg" 
+                        <input type="number" name="annual_salary" required min="0" step="1000"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white font-mono text-lg"
                                placeholder="600000"
                                onfocus="if(this.value=='') this.value='600000'">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Annual Bonus (R)</label>
-                        <input type="number" name="annual_bonus" min="0" step="1000" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white font-mono text-lg" 
+                        <input type="number" name="annual_bonus" min="0" step="1000"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white font-mono text-lg"
                                placeholder="50000"
                                onfocus="if(this.value=='') this.value='50000'">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Age</label>
-                        <input type="number" name="age" required min="18" max="120" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white font-mono text-lg" 
+                        <input type="number" name="age" required min="18" max="120"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white font-mono text-lg"
                                placeholder="35"
                                onfocus="if(this.value=='') this.value='35'">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Medical Aid Members</label>
-                        <input type="number" name="medical_members" min="0" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white font-mono text-lg" 
+                        <input type="number" name="medical_members" min="0"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white font-mono text-lg"
                                placeholder="2"
                                onfocus="if(this.value=='') this.value='2'">
                     </div>
@@ -82,13 +82,13 @@
                     &#128722; YOUR SPENDING
                     <span class="ml-3 text-xs bg-red-900 text-red-200 px-2 py-1 rounded">PHASE 2: TAXATION</span>
                 </h3>
-                
+
                 <h4 class="font-bold text-gray-300 mb-3 text-lg">&#128179; General Spending</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">VAT-able Spending (R/month)</label>
-                        <input type="number" name="std_vat_spend_month" min="0" step="100" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="std_vat_spend_month" min="0" step="100"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500 text-white font-mono text-lg"
                                placeholder="15000"
                                onfocus="if(this.value=='') this.value='15000'">
                         <p class="text-xs text-gray-400 mt-1">15% VAT = instant government tax on almost EVERYTHING you buy</p>
@@ -99,24 +99,24 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Petrol (L/month)</label>
-                        <input type="number" name="litres_petrol_month" min="0" step="10" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="litres_petrol_month" min="0" step="10"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="100"
                                onfocus="if(this.value=='') this.value='100'">
                         <p class="text-xs text-red-300 mt-1">R6.33/L to govt</p>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Diesel (L/month)</label>
-                        <input type="number" name="litres_diesel_month" min="0" step="10" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="litres_diesel_month" min="0" step="10"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="0"
                                onfocus="if(this.value=='') this.value='0'">
                         <p class="text-xs text-red-300 mt-1">R6.20/L to govt</p>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Electricity (kWh/month)</label>
-                        <input type="number" name="electricity_kwh_month" min="0" step="50" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="electricity_kwh_month" min="0" step="50"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="500"
                                onfocus="if(this.value=='') this.value='500'">
                         <p class="text-xs text-red-300 mt-1">R0.035/kWh levy</p>
@@ -130,7 +130,7 @@
                         <span class="text-gray-400">Tax rates: Beer R121.41/LAA, Wine R4.96/L, Spirits R249.20/LAA, Cigarettes R18.22+30%.</span>
                     </p>
                 </div>
-                
+
                 <div class="space-y-4">
                     <!-- Alcohol Section -->
                     <div>
@@ -138,24 +138,24 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label class="block text-sm font-bold text-gray-200 mb-2">Beer (L/month)</label>
-                                <input type="number" name="beer_litres_month" min="0" step="1" 
-                                       class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                                <input type="number" name="beer_litres_month" min="0" step="1"
+                                       class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                        placeholder="10"
                                        onfocus="if(this.value=='') this.value='10'">
                                 <p class="text-xs text-gray-400 mt-1">Calculated at 5.0% ABV average</p>
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-200 mb-2">Wine (L/month)</label>
-                                <input type="number" name="wine_litres_month" min="0" step="1" 
-                                       class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                                <input type="number" name="wine_litres_month" min="0" step="1"
+                                       class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                        placeholder="4"
                                        onfocus="if(this.value=='') this.value='4'">
                                 <p class="text-xs text-gray-400 mt-1">Calculated at 13.0% ABV average</p>
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-200 mb-2">Spirits (L/month)</label>
-                                <input type="number" name="spirits_litres_month" min="0" step="0.1" 
-                                       class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                                <input type="number" name="spirits_litres_month" min="0" step="0.1"
+                                       class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                        placeholder="0.5"
                                        onfocus="if(this.value=='') this.value='0.5'">
                                 <p class="text-xs text-gray-400 mt-1">Calculated at 43.0% ABV average</p>
@@ -169,8 +169,8 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-bold text-gray-200 mb-2">Cigarette Packs (20s/month)</label>
-                                <input type="number" name="cigarette_packs_20_month" min="0" step="1" 
-                                       class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                                <input type="number" name="cigarette_packs_20_month" min="0" step="1"
+                                       class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                        placeholder="0"
                                        onfocus="if(this.value=='') this.value='0'">
                                 <p class="text-xs text-gray-400 mt-1">Calculated at R50/pack average price</p>
@@ -192,32 +192,32 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">TV Licenses</label>
-                        <input type="number" name="tv_licenses_count" min="0" step="1" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="tv_licenses_count" min="0" step="1"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="1"
                                onfocus="if(this.value=='') this.value='1'">
                         <p class="text-xs text-gray-400 mt-1">R265/year each to SABC</p>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Tyres Bought per Year</label>
-                        <input type="number" name="tyres_purchased_per_year" min="0" step="1" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="tyres_purchased_per_year" min="0" step="1"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="4"
                                onfocus="if(this.value=='') this.value='4'">
                         <p class="text-xs text-gray-400 mt-1">R2.30/kg levy (avg 10kg per tyre)</p>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Imported Goods Spend (R/month)</label>
-                        <input type="number" name="monthly_imported_goods_spend" min="0" step="100" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="monthly_imported_goods_spend" min="0" step="100"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="500"
                                onfocus="if(this.value=='') this.value='500'">
                         <p class="text-xs text-gray-400 mt-1">Clothing, electronics, etc. (avg 20% import duty)</p>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Online International Shopping (R/month)</label>
-                        <input type="number" name="monthly_international_online_spend" min="0" step="100" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="monthly_international_online_spend" min="0" step="100"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="300"
                                onfocus="if(this.value=='') this.value='300'">
                         <p class="text-xs text-gray-400 mt-1">Amazon, Shein, AliExpress, etc. (VAT + avg 20% duty)</p>
@@ -232,16 +232,16 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Domestic Flights per Year</label>
-                        <input type="number" name="domestic_flights_per_year" min="0" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="domestic_flights_per_year" min="0"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="2"
                                onfocus="if(this.value=='') this.value='2'">
                         <p class="text-xs text-red-300 mt-1">~R125 in taxes per flight</p>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">International Flights per Year</label>
-                        <input type="number" name="international_flights_per_year" min="0" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                        <input type="number" name="international_flights_per_year" min="0"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="1"
                                onfocus="if(this.value=='') this.value='1'">
                         <p class="text-xs text-red-300 mt-1">~R295 in taxes per departure</p>
@@ -253,7 +253,7 @@
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Annual Accommodation Spend (R/year)</label>
                         <input type="number" name="annual_accommodation_spend" min="0" step="0.01"
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg" 
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-red-500 text-white font-mono text-lg"
                                placeholder="5000"
                                onfocus="if(this.value=='') this.value='5000'">
                         <p class="text-xs text-gray-400 mt-1">Hotels, Airbnb - 1% tourism levy</p>
@@ -271,29 +271,29 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Vehicle License (R/year)</label>
-                        <input type="number" name="vehicle_licence_fees_annual" min="0" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-purple-500 text-white font-mono text-lg" 
+                        <input type="number" name="vehicle_licence_fees_annual" min="0"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-purple-500 text-white font-mono text-lg"
                                placeholder="500"
                                onfocus="if(this.value=='') this.value='500'">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Toll Fees (R/year)</label>
-                        <input type="number" name="tolls_annual" min="0" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-purple-500 text-white font-mono text-lg" 
+                        <input type="number" name="tolls_annual" min="0"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-purple-500 text-white font-mono text-lg"
                                placeholder="1000"
                                onfocus="if(this.value=='') this.value='1000'">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Municipal Rates (R/year)</label>
-                        <input type="number" name="municipal_rates_services_annual" min="0" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-purple-500 text-white font-mono text-lg" 
+                        <input type="number" name="municipal_rates_services_annual" min="0"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-purple-500 text-white font-mono text-lg"
                                placeholder="12000"
                                onfocus="if(this.value=='') this.value='12000'">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Vehicle Installment (R/month)</label>
-                        <input type="number" name="vehicle_monthly_installment" min="0" step="100" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-purple-500 text-white font-mono text-lg" 
+                        <input type="number" name="vehicle_monthly_installment" min="0" step="100"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-purple-500 text-white font-mono text-lg"
                                placeholder="5000"
                                onfocus="if(this.value=='') this.value='5000'">
                     </div>
@@ -350,7 +350,7 @@
                             <span class="text-xs text-gray-400 font-normal">Typical: R300-R800</span>
                         </label>
                         <input type="number" name="municipal_water_monthly" min="0" step="0.01"
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-cyan-500 text-white font-mono text-lg" 
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-cyan-500 text-white font-mono text-lg"
                                placeholder="500"
                                onfocus="if(this.value=='') this.value='500'">
                     </div>
@@ -360,7 +360,7 @@
                             <span class="text-xs text-gray-400 font-normal">Typical: R250-R600</span>
                         </label>
                         <input type="number" name="municipal_sewerage_monthly" min="0" step="0.01"
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-cyan-500 text-white font-mono text-lg" 
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-cyan-500 text-white font-mono text-lg"
                                placeholder="400"
                                onfocus="if(this.value=='') this.value='400'">
                     </div>
@@ -370,7 +370,7 @@
                             <span class="text-xs text-gray-400 font-normal">Typical: R200-R400</span>
                         </label>
                         <input type="number" name="municipal_refuse_monthly" min="0" step="0.01"
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-cyan-500 text-white font-mono text-lg" 
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-cyan-500 text-white font-mono text-lg"
                                placeholder="300"
                                onfocus="if(this.value=='') this.value='300'">
                     </div>
@@ -380,7 +380,7 @@
                             <span class="text-xs text-gray-400 font-normal">Stormwater, meter rental</span>
                         </label>
                         <input type="number" name="municipal_other_monthly" min="0" step="0.01"
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-cyan-500 text-white font-mono text-lg" 
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-cyan-500 text-white font-mono text-lg"
                                placeholder="100"
                                onfocus="if(this.value=='') this.value='100'">
                     </div>
@@ -396,16 +396,16 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">SA Dividends (R/year)</label>
-                        <input type="number" name="sa_dividends_annual" min="0" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-yellow-500 text-white font-mono text-lg" 
+                        <input type="number" name="sa_dividends_annual" min="0"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-yellow-500 text-white font-mono text-lg"
                                placeholder="10000"
                                onfocus="if(this.value=='') this.value='10000'">
                         <p class="text-xs text-gray-400 mt-1">20% withheld before you see it</p>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-200 mb-2">Capital Gains Base (R/year)</label>
-                        <input type="number" name="taxable_cgt_base_annual" min="0" 
-                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-yellow-500 text-white font-mono text-lg" 
+                        <input type="number" name="taxable_cgt_base_annual" min="0"
+                               class="w-full px-4 py-3 bg-slate-700 border-2 border-slate-600 rounded-md focus:ring-2 focus:ring-yellow-500 text-white font-mono text-lg"
                                placeholder="0"
                                onfocus="if(this.value=='') this.value='0'">
                         <p class="text-xs text-gray-400 mt-1">18% effective rate on gains</p>
@@ -416,13 +416,13 @@
             <input type="hidden" name="retirement_contrib" value="0">
 
             <!-- Submit Button -->
-            <div class="bg-gradient-to-r from-red-600 to-red-800 rounded-lg p-6 text-center border-2 border-red-400 shadow-2xl">
-                <button type="submit" 
-                        class="w-full bg-white text-red-900 px-8 py-4 rounded-lg font-black text-2xl hover:bg-red-100 transition-all transform hover:scale-105 shadow-lg">
-                    &#128163; EXPOSE MY BLEED RATE &#128163;
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-6 text-center border-2 border-blue-500 shadow-lg">
+                <button type="submit"
+                        class="w-full bg-white text-blue-900 px-8 py-4 rounded-lg font-bold text-2xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-md">
+                    📊 Calculate My Tax Footprint
                 </button>
-                <p class="text-red-100 text-sm mt-3 font-semibold">
-                    Warning: Results may shock you. Prepare for truth.
+                <p class="text-blue-100 text-sm mt-3">
+                    See your complete breakdown of taxes, levies, and government charges
                 </p>
             </div>
         </form>
@@ -445,29 +445,29 @@
 <script>
     // LocalStorage key for form data
     const FORM_DATA_KEY = 'bleedrate_form_data';
-    
+
     // Save form data to localStorage on input change
     function saveFormData() {
         const form = document.getElementById('calc-form');
         const formData = new FormData(form);
         const data = {};
-        
+
         // Convert FormData to object
         for (let [key, value] of formData.entries()) {
             data[key] = value;
         }
-        
+
         localStorage.setItem(FORM_DATA_KEY, JSON.stringify(data));
     }
-    
+
     // Restore form data from localStorage
     function restoreFormData() {
         const savedData = localStorage.getItem(FORM_DATA_KEY);
-        
+
         if (savedData) {
             try {
                 const data = JSON.parse(savedData);
-                
+
                 // Populate form fields
                 for (let [key, value] of Object.entries(data)) {
                     const input = document.querySelector(`[name="${key}"]`);
@@ -485,11 +485,11 @@
             }
         }
     }
-    
+
     // Initialize: Restore data on page load
     document.addEventListener('DOMContentLoaded', function() {
         restoreFormData();
-        
+
         // Add event listeners to all form inputs to save on change
         const form = document.getElementById('calc-form');
         if (form) {
@@ -498,38 +498,38 @@
                 clearTimeout(form.saveTimeout);
                 form.saveTimeout = setTimeout(saveFormData, 500);
             });
-            
+
             form.addEventListener('change', saveFormData);
         }
     });
-    
+
     // Collapse input form after results load and show toggle button
     document.body.addEventListener('htmx:afterSwap', function(event) {
         if (event.detail.target.id === 'results') {
             // Hide the form fields
             const formElement = document.getElementById('calc-form');
             const toggleBtn = document.getElementById('toggle-form-btn');
-            
+
             if (formElement && toggleBtn) {
                 formElement.style.display = 'none';
                 toggleBtn.classList.remove('hidden');
-                
+
                 // Smooth scroll to results
                 setTimeout(() => {
-                    document.getElementById('results').scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'start' 
+                    document.getElementById('results').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }, 100);
             }
         }
     });
-    
+
     // Collect client-side metadata before form submission
     document.body.addEventListener('htmx:configRequest', function(event) {
         if (event.detail.path === '/calc') {
             const form = document.getElementById('calc-form');
-            
+
             // Generate or retrieve session ID (proper UUID v4 format)
             let sessionId = sessionStorage.getItem('bleedrate_session_id');
             if (!sessionId) {
@@ -541,7 +541,7 @@
                 });
                 sessionStorage.setItem('bleedrate_session_id', sessionId);
             }
-            
+
             // Collect browser capabilities
             const hasWebGL = (function() {
                 try {
@@ -551,7 +551,7 @@
                     return false;
                 }
             })();
-            
+
             // Add hidden fields with metadata
             const metadata = {
                 'screen_width': window.screen.width,
@@ -569,40 +569,40 @@
                 'local_storage_support': (typeof(Storage) !== 'undefined') ? 'true' : 'false',
                 'session_id': sessionId
             };
-            
+
             // Add to request parameters
             Object.assign(event.detail.parameters, metadata);
         }
     });
-    
+
     // Track page load time
     const pageLoadTime = Date.now();
-    
+
     // Toggle input form visibility
     function toggleInputForm() {
         const formElement = document.getElementById('calc-form');
         const toggleBtn = document.getElementById('toggle-form-btn');
-        
+
         if (formElement.style.display === 'none') {
             formElement.style.display = 'block';
             toggleBtn.innerHTML = '&#9650; HIDE INPUTS';
-            
+
             // Scroll to form
             setTimeout(() => {
-                document.getElementById('input-section').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
+                document.getElementById('input-section').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }, 100);
         } else {
             formElement.style.display = 'none';
             toggleBtn.innerHTML = '&#9660; EDIT YOUR INPUTS';
-            
+
             // Scroll to results
             setTimeout(() => {
-                document.getElementById('results').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
+                document.getElementById('results').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }, 100);
         }
