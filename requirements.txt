@@ -10,7 +10,16 @@ itsdangerous
 python-multipart
 httpx
 supabase
+
+# Testing dependencies
 pytest
 pytest-cov
+pytest-xdist  # Parallel testing
+pytest-asyncio  # Async test support
+pytest-watch  # Watch mode for tests
+
+# Code quality
 ruff
 black
+pre-commit  # Git hooks for automation
+bandit  # Security testing
