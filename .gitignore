@@ -1,0 +1,121 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.pyc
+*.pyo
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+.Python
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+db/*.db
+
+# Environment Variables (CRITICAL - NEVER COMMIT!)
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+
+# Supabase secrets (extra safety)
+*supabase*.key
+*supabase*.secret
+
+# Railway secrets
+railway.json
+.railway/
+
+# API Keys and Credentials
+*.pem
+*.key
+*.cert
+secrets/
+credentials/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Backup files
+*.backup
+*.old
+
+# Local development
+local_settings.py
+instance/
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+ehthumbs.db
+ehthumbs_vista.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+

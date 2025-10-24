@@ -1,0 +1,16 @@
+# Python dependencies
+fastapi
+uvicorn[standard]
+jinja2
+pydantic>=2
+pyyaml
+sqlmodel
+python-dotenv
+itsdangerous
+python-multipart
+httpx
+supabase
+pytest
+pytest-cov
+ruff
+black

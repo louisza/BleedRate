@@ -1,0 +1,185 @@
+# South African Tax Rates Configuration
+# Tax Year: 2024/25
+# Last Updated: October 2025
+# Source: National Treasury - The Taxation of Alcoholic Beverages (2024)
+
+# PAYE Income Tax Brackets
+paye_brackets:
+  - lower: 0
+    up_to: 237100
+    rate: 0.18
+    base_tax: 0
+  - lower: 237100
+    up_to: 370500
+    rate: 0.26
+    base_tax: 42678
+  - lower: 370500
+    up_to: 512800
+    rate: 0.31
+    base_tax: 77362
+  - lower: 512800
+    up_to: 673000
+    rate: 0.36
+    base_tax: 121475
+  - lower: 673000
+    up_to: 857900
+    rate: 0.39
+    base_tax: 179147
+  - lower: 857900
+    up_to: 1817000
+    rate: 0.41
+    base_tax: 251258
+  - lower: 1817000
+    up_to: null
+    rate: 0.45
+    base_tax: 644489
+
+# Tax Rebates (reduces final tax owed)
+primary_rebate: 17235      # All taxpayers
+secondary_rebate: 9444     # Age 65+
+tertiary_rebate: 3145      # Age 75+
+
+# Medical Aid Tax Credits (monthly amounts in Rand)
+med_credit_first_two: 364  # First two members
+med_credit_additional: 246 # Each additional member
+
+# Unemployment Insurance Fund
+uif_employee_rate: 0.01    # 1% of salary
+uif_monthly_cap: 177.12    # Maximum monthly contribution
+
+# Value Added Tax
+vat_rate: 0.15             # 15%
+
+# Fuel Levies (Rand per litre)
+fuel_gfl_petrol: 4.01      # General Fuel Levy - Petrol
+fuel_gfl_diesel: 3.85      # General Fuel Levy - Diesel
+fuel_raf: 2.18             # Road Accident Fund levy
+fuel_carbon_petrol: 0.14   # Carbon tax - Petrol
+fuel_carbon_diesel: 0.17   # Carbon tax - Diesel
+
+# Environmental Levy
+electricity_env_levy: 0.035 # R0.035 per kWh
+
+# Health Promotion Levy (sugary drinks)
+hpl_per_gram_over_threshold: 0.021  # R0.021 per gram of sugar above threshold
+hpl_threshold_g_per_100ml: 4.0      # First 4g/100ml exempt
+
+# Alcohol Excise Duties (2024/25)
+# Source: National Treasury - The Taxation of Alcoholic Beverages (2024)
+# 
+# CURRENT FRAMEWORK (as per National Treasury 2024):
+# - Beer/Fermented: R121.41 per litre of absolute alcohol (LAA)
+# - Wine: R4.96 per litre (volumetric - NOT based on alcohol content)
+# - Fortified Wine: R8.36 per litre
+# - Spirits: Higher rate per LAA (targeting 36% excise incidence)
+#
+# POLICY GUIDELINES (excise as % of weighted average retail price):
+# - Wine: 11% (proposed increase to 16%)
+# - Beer: 23% (proposed increase to 28%)
+# - Spirits: 36% (proposed increase to 42%)
+#
+# PROPOSED REFORMS (under consideration):
+# 1. Targeted Band Framework: Annual adjustments between inflation and max 10%
+# 2. Wine: Move to LAA-based taxation with 3 bands:
+#    - 0.5-4.5% ABV: R4.96/L (current rate)
+#    - 4.5-9% ABV: R6.94/L (1.4x current)
+#    - 9-16.5% ABV: R8.93/L (1.8x current)
+# 3. Beer: Progressive 3-band system:
+#    - 0.5-2.5% ABV: R121.41/LAA (current rate)
+#    - 2.5-9% ABV: R145.69/LAA (1.2x current)
+#    - 9-15% ABV: R169.97/LAA (1.4x current)
+#
+# IMPLEMENTATION NOTE:
+# Calculator currently uses SIMPLIFIED rates for typical products:
+# - Beer (4-5% ABV): ~R6.07/L effective rate (R121.41/LAA × 5% ABV)
+# - Wine (9-15% ABV): R4.96/L volumetric
+# - Spirits (40% ABV): ~R99.68/L effective rate (R249.20/LAA × 40% ABV)
+
+beer_excise_per_laa: 121.41         # R121.41 per litre of absolute alcohol
+beer_typical_abv: 0.05              # 5% ABV typical for calculator estimates
+wine_excise_per_litre: 4.96         # R4.96 per LITRE OF WINE (volumetric, NOT LAA-based)
+fortified_wine_excise_per_litre: 8.36  # R8.36 per litre (fortified wines)
+spirits_excise_per_laa: 249.20      # R249.20 per litre of absolute alcohol
+spirits_typical_abv: 0.40           # 40% ABV typical for calculator estimates
+laa_to_ml_ratio: 1000               # 1 LAA = 1000ml (for ABV calculations)
+
+# Tobacco Excise Duties (2024/25)
+cigarette_excise_per_20: 18.22      # R18.22 per 20 cigarettes (specific excise)
+cigarette_ad_valorem_rate: 0.30     # 30% ad valorem (of retail price)
+cigar_excise_per_gram: 10.96        # R10.96 per gram
+pipe_tobacco_excise_per_gram: 5.44  # R5.44 per gram
+
+# Other Levies
+plastic_bag_levy: 0.32     # Per bag (Rand)
+tyre_levy_per_kg: 2.30     # R2.30 per kg of tyre mass (2024/25 rate)
+# Typical passenger car tyre: ~10kg, truck tyre: ~60kg
+# Most people replace 4 tyres every 3-4 years
+tv_license_annual: 265     # R265 per year for TV/device capable of receiving broadcasts
+
+# Sugar Tax (Health Promotion Levy)
+sugar_tax_per_gram: 0.021  # R0.021 per gram of sugar above 4g/100ml threshold
+
+# Import Duties (Customs Duties on Consumer Goods)
+# Note: These are in addition to Import VAT
+import_duty_clothing: 0.40    # 40% on most clothing items
+import_duty_footwear: 0.30    # 30% on footwear
+import_duty_electronics_low: 0.00   # 0% on laptops, phones (SACU incentive)
+import_duty_electronics_high: 0.15  # 15% on TVs, appliances
+import_duty_general: 0.20     # 20% general rate for other consumer goods
+import_duty_weighted_avg: 0.20  # Weighted average across typical consumer basket
+
+# Airport Taxes & Aviation Levies
+# Domestic flights
+airport_tax_domestic: 100     # ~R100 per domestic flight (included in ticket)
+passenger_service_charge_domestic: 25  # ~R25 domestic PSC
+# International flights  
+airport_tax_international: 190  # ~R190 per international departure
+passenger_service_charge_international: 75  # ~R75 international PSC
+tourism_levy_international: 30  # R30 tourism levy on international departures
+
+# Tourism Levies
+# Provincial tourism levy on accommodation (hotels, B&Bs, guesthouses, Airbnb, etc.)
+accommodation_tourism_levy_rate: 0.01  # 1% of accommodation charges flows to provincial tourism boards
+
+# Import VAT (on international online purchases)
+import_vat_rate: 0.15  # 15% VAT on imported goods (in addition to customs duty)
+import_vat_threshold: 0  # No de minimis - all imports subject to VAT
+
+# Municipal Services (100% flows to local government)
+# Water: Includes raw water purchase from Water Boards (state entities) + municipal distribution
+# Sewerage: Wastewater treatment and sanitation services (typically 80% of water charge)
+# Refuse: Solid waste collection and disposal (fixed monthly fee)
+municipal_water_typical_per_kl: 25  # R15-R50/kL depending on municipality & usage tier
+municipal_sewerage_as_percent_of_water: 0.80  # Typically 80-100% of water charge
+municipal_refuse_typical_monthly: 250  # R200-R400/month fixed charge (varies by municipality)
+
+# Investment Taxes
+dividends_tax_rate: 0.20   # 20% on SA dividends
+cgt_effective_max_rate: 0.18  # Effective max rate (40% inclusion × 45%)
+
+# Transfer Duty (property purchases)
+transfer_duty:
+  - up_to: 1210000
+    base: 0
+    rate: 0.00
+    excess_over: 0
+  - up_to: 1750000
+    base: 0
+    rate: 0.03
+    excess_over: 1210000
+  - up_to: 2475000
+    base: 16200
+    rate: 0.06
+    excess_over: 1750000
+  - up_to: 11000000
+    base: 59700
+    rate: 0.08
+    excess_over: 2475000
+  - up_to: 13310000
+    base: 834700
+    rate: 0.11
+    excess_over: 11000000
+  - up_to: null
+    base: 1091100
+    rate: 0.13
+    excess_over: 13310000

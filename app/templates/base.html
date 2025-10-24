@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BleedRate - See Where Your Money REALLY Goes 🩸{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <style>
+        [x-cloak] { display: none !important; }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .glitch-text {
+            position: relative;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+        
+        .blood-drip {
+            background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .warning-stripe {
+            background: repeating-linear-gradient(
+                45deg,
+                #fef3c7,
+                #fef3c7 10px,
+                #fbbf24 10px,
+                #fbbf24 20px
+            );
+        }
+        
+        .neon-border {
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.5), 0 0 20px rgba(220, 38, 38, 0.3), 0 0 30px rgba(220, 38, 38, 0.1);
+        }
+        
+        .money-leak {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+        }
+        
+        .money-leak::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(220, 38, 38, 0.03) 2px,
+                rgba(220, 38, 38, 0.03) 4px
+            );
+            animation: slide 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-counter {
+            font-variant-numeric: tabular-nums;
+            font-feature-settings: 'tnum';
+        }
+    </style>
+</head>
+<body class="money-leak">
+    <!-- Dramatic Header -->
+    <header class="blood-drip text-white shadow-2xl border-b-4 border-red-900 relative z-10">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="glitch-text text-5xl md:text-6xl mb-2">
+                        🩸 BLEED<span class="text-red-200">RATE</span>
+                    </h1>
+                    <p class="text-red-100 text-lg md:text-xl font-semibold tracking-wide">
+                        WATCH YOUR MONEY FLOW TO GOVERNMENT IN REAL-TIME
+                    </p>
+                    <p class="text-red-200 text-sm mt-2 font-mono">
+                        ⚠️ Warning: Truth may cause financial awareness ⚠️
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-wrapper relative z-10">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 mt-12 border-t-2 border-red-900 relative z-10">
+        <div class="container mx-auto px-4 py-6 text-center">
+            <p class="text-red-100 font-bold">&copy; 2025 BLEEDRATE | Tax Year 2024/25</p>
+            <p class="text-sm mt-2 text-gray-400">
+                See exactly where your money goes. Knowledge is power. For informational purposes only.
+            </p>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

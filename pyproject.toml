@@ -1,0 +1,40 @@
+[project]
+name = "sa-tax-footprint"
+version = "1.0.0"
+description = "South African Tax Footprint Calculator"
+requires-python = ">=3.11"
+authors = [{name = "Your Name"}]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | __pycache__
+  | dist
+)/
+'''
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "N", "W"]
+ignore = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = "-v --cov=app --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["*/tests/*", "*/__init__.py"]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false

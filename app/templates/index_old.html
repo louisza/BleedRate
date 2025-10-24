@@ -1,0 +1,438 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">� How Much Goes to Government?</h2>
+        <p class="text-gray-600 mb-6">
+            Enter your financial information below to see exactly how much of your money flows to the government through various taxes and levies.
+        </p>
+
+        <form hx-post="/calc" hx-target="#results" hx-swap="innerHTML" class="space-y-8">
+            
+            <!-- Personal Income Section -->
+            <div class="border-l-4 border-blue-500 pl-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">💼 Personal Income</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Annual Salary (R)</label>
+                        <input type="number" name="annual_salary" required min="0" step="1000" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="600000">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Annual Bonus (R)</label>
+                        <input type="number" name="annual_bonus" min="0" step="1000" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Age</label>
+                        <input type="number" name="age" required min="18" max="120" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="35">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Medical Aid Members</label>
+                        <input type="number" name="medical_members" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consumption Section -->
+            <div class="border-l-4 border-green-500 pl-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">🛒 Monthly Consumption</h3>
+                
+                <h4 class="font-medium text-gray-600 mb-3">General Spending</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">VAT-able Spending (R/month)</label>
+                        <input type="number" name="std_vat_spend_month" min="0" step="100" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="15000">
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">⛽ Fuel & Utilities</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Petrol (litres/month)</label>
+                        <input type="number" name="litres_petrol_month" min="0" step="10" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="100">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Diesel (litres/month)</label>
+                        <input type="number" name="litres_diesel_month" min="0" step="10" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Electricity (kWh/month)</label>
+                        <input type="number" name="electricity_kwh_month" min="0" step="50" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="500">
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">🍺 Alcohol (monthly)</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Beer (litres)</label>
+                        <input type="number" name="beer_litres_month" min="0" step="1" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="20">
+                        <input type="hidden" name="beer_avg_abv" value="5.0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Wine (litres)</label>
+                        <input type="number" name="wine_litres_month" min="0" step="1" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <input type="hidden" name="wine_avg_abv" value="12.5">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Spirits (litres)</label>
+                        <input type="number" name="spirits_litres_month" min="0" step="0.5" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <input type="hidden" name="spirits_avg_abv" value="43.0">
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">🚬 Tobacco (monthly)</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Cigarette Packs (20s)</label>
+                        <input type="number" name="cigarette_packs_20_month" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <input type="hidden" name="cigarette_avg_price_per_pack" value="45.0">
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">🛒 Import Duties & Online Shopping</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Imported Goods Spending (R/month)</label>
+                        <input type="number" name="monthly_imported_goods_spend" min="0" step="100"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <p class="text-xs text-gray-500 mt-1">Clothing, electronics, footwear from overseas</p>
+                        <input type="hidden" name="imported_goods_avg_duty_rate" value="0.20">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">International Online Shopping (R/month)</label>
+                        <input type="number" name="monthly_international_online_spend" min="0" step="100"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <p class="text-xs text-gray-500 mt-1">Amazon, Shein, AliExpress, etc. (includes import VAT + duty)</p>
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">✈️ Air Travel (annual)</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Domestic Flights per Year</label>
+                        <input type="number" name="domestic_flights_per_year" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <p class="text-xs text-gray-500 mt-1">~R125 in airport taxes to government per flight</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">International Flights per Year</label>
+                        <input type="number" name="international_flights_per_year" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <p class="text-xs text-gray-500 mt-1">~R295 in taxes & levies to government per departure</p>
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">🏨 Accommodation (annual)</h4>
+                <div class="grid grid-cols-1 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Annual Accommodation Spend (R/year)</label>
+                        <input type="number" name="annual_accommodation_spend" min="0" step="0.01"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <p class="text-xs text-gray-500 mt-1">Hotels, B&Bs, guesthouses, Airbnb - 1% tourism levy to provincial government</p>
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">🚗 Tyre Replacements (annual)</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tyres Purchased per Year</label>
+                        <input type="number" name="tyres_purchased_per_year" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                        <p class="text-xs text-gray-500 mt-1">Usually 4 tyres every 3-4 years (enter average per year)</p>
+                        <input type="hidden" name="tyre_avg_weight_kg" value="10.0">
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">📺 TV License</h4>
+                <div class="grid grid-cols-1 gap-4">
+                    <div>
+                        <label class="flex items-center cursor-pointer bg-white border-2 border-gray-300 rounded-md p-3 hover:border-blue-500 transition">
+                            <input type="checkbox" name="has_tv_license" value="true" 
+                                   class="w-5 h-5 text-blue-600 focus:ring-blue-500 rounded">
+                            <div class="ml-3">
+                                <span class="font-medium text-gray-700">📺 I pay TV License</span>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    R265/year to SABC - required for any TV or broadcast-capable device
+                                </p>
+                                <p class="text-xs text-red-600 mt-1 font-medium">
+                                    R265/year to government broadcaster
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transport & Property -->
+            <div class="border-l-4 border-yellow-500 pl-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">🚗 Transport & Property</h3>
+                
+                <h4 class="font-medium text-gray-600 mb-3">Annual Costs</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle License Fees (R/year)</label>
+                        <input type="number" name="vehicle_licence_fees_annual" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tolls (R/year)</label>
+                        <input type="number" name="tolls_annual" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="2000">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Municipal Rates (R/year)</label>
+                        <input type="number" name="municipal_rates_services_annual" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="12000">
+                    </div>
+                </div>
+
+                <h4 class="font-medium text-gray-600 mb-3 mt-4">🚙 Vehicle Financing (Government Import Duty)</h4>
+                <div class="bg-blue-50 border border-blue-200 rounded-md p-4 mb-3">
+                    <p class="text-sm text-blue-800 mb-2">
+                        💡 <strong>Money to Government:</strong> Imported vehicles include a 25% import duty that goes directly to government. 
+                        Locally assembled vehicles (VW Polo, BMW X3, Toyota Corolla Cross, Mercedes C-Class) avoid this government charge!
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Vehicle Installment (R/month)</label>
+                        <input type="number" name="vehicle_monthly_installment" min="0" step="0.01" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="5478.24" value="0">
+                        <p class="text-xs text-gray-500 mt-1">Enter your exact monthly installment amount</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Assembly</label>
+                        <div class="space-y-2 mt-2">
+                            <label class="flex items-center cursor-pointer bg-white border-2 border-gray-300 rounded-md p-3 hover:border-blue-500 transition">
+                                <input type="radio" name="vehicle_is_imported" value="false"
+                                       class="w-5 h-5 text-blue-600 focus:ring-blue-500">
+                                <div class="ml-3">
+                                    <span class="font-medium text-gray-700">🇿🇦 Locally Assembled</span>
+                                    <p class="text-xs text-gray-500 mt-1">
+                                        VW Polo/Vivo, BMW X3, Toyota Corolla Cross/Fortuner, Mercedes C-Class
+                                    </p>
+                                    <p class="text-xs text-green-600 mt-1 font-medium">
+                                        R0 to government ✓
+                                    </p>
+                                </div>
+                            </label>
+                            <label class="flex items-center cursor-pointer bg-white border-2 border-gray-300 rounded-md p-3 hover:border-blue-500 transition">
+                                <input type="radio" name="vehicle_is_imported" value="true" checked
+                                       class="w-5 h-5 text-blue-600 focus:ring-blue-500">
+                                <div class="ml-3">
+                                    <span class="font-medium text-gray-700">🌍 Internationally Assembled</span>
+                                    <p class="text-xs text-gray-500 mt-1">
+                                        All other vehicles imported into South Africa
+                                    </p>
+                                    <p class="text-xs text-red-600 mt-1 font-medium">
+                                        25% duty → ~20% of your installment to government
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Municipal Services -->
+            <div class="border-l-4 border-cyan-500 pl-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">💧 Municipal Services (Monthly)</h3>
+                <div class="bg-cyan-50 border border-cyan-200 rounded-md p-3 mb-4">
+                    <p class="text-sm text-cyan-800">
+                        <strong>100% flows to government:</strong> Municipalities bill for water, sewerage, and refuse removal. 
+                        Water is sourced from state-owned water boards (Rand Water, Umgeni Water), regulated by Department of Water and Sanitation.
+                        Your monthly payments fund government infrastructure and services.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Water Consumption (R/month)
+                            <span class="text-xs text-gray-500 font-normal">Typical: R300-R800</span>
+                        </label>
+                        <input type="number" name="municipal_water_monthly" min="0" step="0.01"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Sewerage/Sanitation (R/month)
+                            <span class="text-xs text-gray-500 font-normal">Typical: R250-R600</span>
+                        </label>
+                        <input type="number" name="municipal_sewerage_monthly" min="0" step="0.01"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Refuse Removal (R/month)
+                            <span class="text-xs text-gray-500 font-normal">Typical: R200-R400</span>
+                        </label>
+                        <input type="number" name="municipal_refuse_monthly" min="0" step="0.01"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Other Municipal (R/month)
+                            <span class="text-xs text-gray-500 font-normal">Stormwater, meter rental, etc.</span>
+                        </label>
+                        <input type="number" name="municipal_other_monthly" min="0" step="0.01"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investment Income -->
+            <div class="border-l-4 border-purple-500 pl-4">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">💰 Investment Income (Annual)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">SA Dividends (R/year)</label>
+                        <input type="number" name="sa_dividends_annual" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Capital Gains Tax Base (R/year)</label>
+                        <input type="number" name="taxable_cgt_base_annual" min="0" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" 
+                               placeholder="0">
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" name="retirement_contrib" value="0">
+
+            <!-- Submit Button -->
+            <div class="flex justify-center gap-4">
+                <button type="submit" 
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-200">
+                    💸 Calculate Money to Government
+                </button>
+                <button type="button" 
+                        onclick="clearSavedValues()"
+                        class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-200">
+                    🗑️ Clear Form
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Results Container (HTMX target) -->
+    <div id="results" class="mt-8"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Save form values to localStorage on input change
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        const STORAGE_KEY = 'sa_tax_calculator_values';
+        
+        // Restore saved values
+        function restoreFormValues() {
+            const savedData = localStorage.getItem(STORAGE_KEY);
+            if (savedData) {
+                try {
+                    const values = JSON.parse(savedData);
+                    Object.keys(values).forEach(name => {
+                        const input = form.querySelector(`[name="${name}"]`);
+                        if (input) {
+                            if (input.type === 'checkbox') {
+                                input.checked = values[name];
+                            } else if (input.type === 'radio') {
+                                if (input.value === values[name]) {
+                                    input.checked = true;
+                                }
+                            } else {
+                                input.value = values[name];
+                            }
+                        }
+                    });
+                } catch (e) {
+                    console.error('Error restoring form values:', e);
+                }
+            }
+        }
+        
+        // Save form values
+        function saveFormValues() {
+            const formData = new FormData(form);
+            const values = {};
+            
+            // Get all input values
+            form.querySelectorAll('input[name]').forEach(input => {
+                if (input.type === 'checkbox') {
+                    values[input.name] = input.checked;
+                } else if (input.type === 'radio') {
+                    if (input.checked) {
+                        values[input.name] = input.value;
+                    }
+                } else {
+                    values[input.name] = input.value;
+                }
+            });
+            
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
+        }
+        
+        // Restore values on page load
+        restoreFormValues();
+        
+        // Save values on input change (debounced)
+        let saveTimeout;
+        form.addEventListener('input', function() {
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(saveFormValues, 500);
+        });
+        
+        // Save on form submit
+        form.addEventListener('submit', saveFormValues);
+        
+        // Optional: Add clear button functionality
+        window.clearSavedValues = function() {
+            if (confirm('Clear all saved values and reset form?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                form.reset();
+            }
+        };
+    });
+</script>
+{% endblock %}
