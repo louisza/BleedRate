@@ -21,14 +21,6 @@
         </div>
     </div>
 
-    <!-- Ad Unit 1: Top of page (Desktop only) -->
-    {% if settings.ENABLE_ADS %}
-    <div class="hidden md:block">
-        {% set ad_slot = "auto" %}
-        {% include '_ad_unit.html' %}
-    </div>
-    {% endif %}
-
     <!-- Collapsible Input Form Section -->
     <div id="input-section" class="bg-slate-900 rounded-lg shadow-2xl p-6 mb-8 border-2 border-red-600 neon-border">
         <div class="flex justify-between items-center mb-6">
