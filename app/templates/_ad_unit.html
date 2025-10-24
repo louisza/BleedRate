@@ -1,8 +1,8 @@
 {% if settings.ENABLE_ADS and settings.GOOGLE_ADSENSE_CLIENT_ID %}
 <!-- Google AdSense Ad Unit -->
-<div class="my-6 flex justify-center">
+<div class="my-6 w-full flex justify-center">
     <ins class="adsbygoogle"
-         style="display:block"
+         style="display:block; min-width:300px; min-height:250px;"
          data-ad-client="{{ settings.GOOGLE_ADSENSE_CLIENT_ID }}"
          data-ad-slot="{{ ad_slot if ad_slot else 'auto' }}"
          data-ad-format="auto"
