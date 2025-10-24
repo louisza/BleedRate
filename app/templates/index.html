@@ -21,6 +21,14 @@
         </div>
     </div>
 
+    <!-- Ad Unit 1: Top of page (Desktop only) -->
+    {% if settings.ENABLE_ADS %}
+    <div class="hidden md:block">
+        {% set ad_slot = "auto" %}
+        {% include '_ad_unit.html' %}
+    </div>
+    {% endif %}
+
     <!-- Collapsible Input Form Section -->
     <div id="input-section" class="bg-slate-900 rounded-lg shadow-2xl p-6 mb-8 border-2 border-red-600 neon-border">
         <div class="flex justify-between items-center mb-6">
@@ -433,6 +441,14 @@
 <div id="results" class="max-w-7xl mx-auto px-4 pb-8">
     <!-- Results will be loaded here via HTMX -->
 </div>
+
+<!-- Ad Unit 2: After results section (All devices) -->
+{% if settings.ENABLE_ADS %}
+<div class="max-w-7xl mx-auto px-4 pb-8">
+    {% set ad_slot = "auto" %}
+    {% include '_ad_unit.html' %}
+</div>
+{% endif %}
 
 <script>
     // LocalStorage key for form data

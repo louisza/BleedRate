@@ -31,6 +31,14 @@
         </div>
     </div>
 
+    <!-- Ad Unit 3: PREMIUM PLACEMENT - After shocking total -->
+    {% if settings.ENABLE_ADS %}
+    <div class="mb-8">
+        {% set ad_slot = "auto" %}
+        {% include '_ad_unit.html' %}
+    </div>
+    {% endif %}
+
     <!-- Detailed Breakdown Table -->
     <div class="overflow-x-auto bg-slate-800 rounded-lg border-2 border-slate-700">
         <table class="w-full">

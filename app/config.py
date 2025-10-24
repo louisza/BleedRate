@@ -35,6 +35,10 @@ class Settings:
     SUPABASE_URL: str = os.getenv("SUPABASE_URL", "")
     SUPABASE_KEY: str = os.getenv("SUPABASE_KEY", "")
     ENABLE_SUBMISSION_LOGGING: bool = os.getenv("ENABLE_SUBMISSION_LOGGING", "False").lower() == "true"
+    
+    # Google AdSense
+    GOOGLE_ADSENSE_CLIENT_ID: str = os.getenv("GOOGLE_ADSENSE_CLIENT_ID", "")
+    ENABLE_ADS: bool = os.getenv("ENABLE_ADS", "False").lower() == "true"
 
 
 settings = Settings()

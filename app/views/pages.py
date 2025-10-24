@@ -72,7 +72,10 @@ def get_tax_engine() -> TaxEngine:
 @router.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     """Main calculation form page"""
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "settings": settings
+    })
 
 
 @router.post("/calc", response_class=HTMLResponse)
@@ -301,7 +304,8 @@ async def calculate(
             "monthly_total": total / 12,
             "effective_rate": effective_rate,
             "gross_income": gross_income,
-            "tax_explanations": TAX_EXPLANATIONS
+            "tax_explanations": TAX_EXPLANATIONS,
+            "settings": settings
         }
     )
 
