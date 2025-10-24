@@ -10,17 +10,31 @@ load_dotenv()
 class Settings:
     """Application settings"""
     
+    # Environment detection
+    ENVIRONMENT: str = os.getenv("ENVIRONMENT", "production")
+    IS_PRODUCTION: bool = ENVIRONMENT == "production"
+    IS_DEVELOPMENT: bool = ENVIRONMENT == "development"
+    
     # App settings
     SECRET_KEY: str = os.getenv("SECRET_KEY", "dev-secret-key-change-in-production")
     ENV: str = os.getenv("ENV", "development")
-    DEBUG: bool = os.getenv("DEBUG", "True").lower() == "true"
+    DEBUG: bool = os.getenv("DEBUG", str(not IS_PRODUCTION)).lower() == "true"
     
     # Server
     HOST: str = os.getenv("HOST", "0.0.0.0")
     PORT: int = int(os.getenv("PORT", "8000"))
     
-    # Database
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./db/sa-tax.db")
+    # Base URLs (environment-specific)
+    BASE_URL: str = os.getenv(
+        "BASE_URL",
+        "http://localhost:8000" if IS_DEVELOPMENT else "https://bleedrate.up.railway.app"
+    )
+    
+    # Database (environment-specific)
+    DATABASE_URL: str = os.getenv(
+        "DATABASE_URL",
+        f"sqlite:///./db/sa-tax-{ENVIRONMENT}.db"
+    )
     
     # Paths
     BASE_DIR: Path = Path(__file__).resolve().parent.parent

@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  web-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bleedrate-dev
+    ports:
+      - "8001:8000"
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=true
+      - DATABASE_URL=sqlite:///./db/sa-tax-development.db
+      - ADMIN_ENABLED=true
+      - ENABLE_SUBMISSION_LOGGING=false
+      - ENABLE_ADS=false
+    volumes:
+      # Mount source code for hot reload
+      - ./app:/app/app
+      - ./data:/app/data
+      - ./db:/app/db
+      - ./tests:/app/tests
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a database viewer for development
+  db-viewer:
+    image: coleifer/sqlite-web
+    container_name: bleedrate-db-viewer
+    ports:
+      - "8002:8080"
+    volumes:
+      - ./db:/data
+    environment:
+      - SQLITE_DATABASE=/data/sa-tax-development.db
+    depends_on:
+      - web-dev
+    profiles:
+      - tools
+
+networks:
+  default:
+    name: bleedrate-dev-network

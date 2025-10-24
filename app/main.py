@@ -55,8 +55,13 @@ def create_app() -> FastAPI:
     
     @app.get("/health")
     def health_check():
-        """Health check endpoint"""
-        return {"status": "healthy", "version": "1.0.0"}
+        """Health check endpoint for Railway and monitoring"""
+        return {
+            "status": "healthy",
+            "version": "1.0.0",
+            "environment": settings.ENVIRONMENT,
+            "debug": settings.DEBUG,
+        }
     
     return app
 
