@@ -1,6 +1,6 @@
 {% if settings.ENABLE_ADS and settings.GOOGLE_ADSENSE_CLIENT_ID %}
 <!-- Google AdSense Ad Unit -->
-<div class="my-6 w-full flex justify-center">
+<div class="my-6 w-full flex justify-center ad-container">
     <ins class="adsbygoogle"
          style="display:block; min-width:300px; min-height:250px;"
          data-ad-client="{{ settings.GOOGLE_ADSENSE_CLIENT_ID }}"
@@ -11,6 +11,52 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
+<!-- Ko-fi Fallback (shown when ad blocker detected) -->
+<div class="my-6 w-full flex justify-center kofi-fallback" style="display:none;">
+    <div class="bg-slate-800 border-2 border-yellow-600 rounded-lg p-6 text-center max-w-md">
+        <p class="text-yellow-400 text-sm font-bold mb-2">
+            🚫 Ad Blocker Detected
+        </p>
+        <p class="text-gray-300 text-sm mb-4">
+            We respect your choice! If BleedRate helped you see the truth about your tax burden,
+            consider supporting us instead ☕
+        </p>
+        <a href="https://ko-fi.com/bleedrate" 
+           target="_blank"
+           class="inline-block bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold px-8 py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg">
+            ☕ Support BleedRate on Ko-fi
+        </a>
+        <p class="text-xs text-gray-500 mt-3">
+            No ads, no tracking, just honest tax calculations. Your support keeps us going.
+        </p>
+    </div>
+</div>
+
+<script>
+// Detect if ad blocker is active
+(function() {
+    // Check if AdSense loaded properly
+    setTimeout(function() {
+        const adContainer = document.querySelector('.ad-container');
+        const kofiFallback = document.querySelector('.kofi-fallback');
+        
+        if (adContainer && kofiFallback) {
+            const adElement = adContainer.querySelector('.adsbygoogle');
+            
+            // Check if ad is blocked (not filled)
+            if (!adElement || adElement.getAttribute('data-ad-status') === 'unfilled' || 
+                adElement.offsetHeight === 0 || !window.adsbygoogle || 
+                window.adsbygoogle.loaded !== true) {
+                // Ad blocked or failed to load - show Ko-fi
+                adContainer.style.display = 'none';
+                kofiFallback.style.display = 'flex';
+            }
+        }
+    }, 2000); // Wait 2 seconds for ads to load
+})();
+</script>
+
 {% else %}
 <!-- Ko-fi Donation Button (shown when ads are disabled) -->
 <div class="my-6 w-full flex justify-center">
