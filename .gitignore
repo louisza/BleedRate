@@ -60,8 +60,7 @@ db/*.db
 *supabase*.key
 *supabase*.secret
 
-# Railway secrets
-railway.json
+# Railway secrets (but allow railway.json config file)
 .railway/
 
 # API Keys and Credentials
