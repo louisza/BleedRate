@@ -1,17 +1,4 @@
-{% if settings.ENABLE_ADS and settings.GOOGLE_ADSENSE_CLIENT_ID %}
-<!-- Google AdSense Ad Unit -->
-<div class="my-6 w-full flex justify-center">
-    <ins class="adsbygoogle"
-         style="display:block; min-width:300px; min-height:250px;"
-         data-ad-client="{{ settings.GOOGLE_ADSENSE_CLIENT_ID }}"
-         data-ad-slot="{{ ad_slot if ad_slot else 'auto' }}"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-</div>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-{% else %}
+{% if not settings.ENABLE_ADS %}
 <!-- Ko-fi Donation Button (shown when ads are disabled) -->
 <div class="my-6 w-full flex justify-center">
     <div class="bg-slate-800 border-2 border-slate-700 rounded-lg p-6 text-center max-w-md">
