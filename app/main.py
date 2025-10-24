@@ -1,4 +1,5 @@
 """FastAPI application factory and configuration"""
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.gzip import GZipMiddleware
@@ -23,8 +24,15 @@ def create_app() -> FastAPI:
     # Initialize database
     create_db_and_tables()
     
-    # Mount static files
-    app.mount("/static", StaticFiles(directory=str(settings.STATIC_DIR)), name="static")
+    # Mount static files - create directory if it doesn't exist
+    static_dir = Path(settings.STATIC_DIR)
+    static_dir.mkdir(parents=True, exist_ok=True)
+    
+    try:
+        app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+    except RuntimeError as e:
+        # Static directory issue - log but don't crash (using Tailwind CDN anyway)
+        print(f"Warning: Could not mount static files: {e}")
     
     # Add middleware
     app.add_middleware(GZipMiddleware, minimum_size=1000)
