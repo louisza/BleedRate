@@ -316,3 +316,27 @@ async def results_page(request: Request):
     # This would typically load from a saved scenario
     # For now, just show the template
     return templates.TemplateResponse("results.html", {"request": request})
+
+
+@router.get("/privacy", response_class=HTMLResponse)
+async def privacy_policy(request: Request):
+    """Privacy Policy page"""
+    return templates.TemplateResponse("privacy.html", {"request": request})
+
+
+@router.get("/about", response_class=HTMLResponse)
+async def about_page(request: Request):
+    """About BleedRate page"""
+    return templates.TemplateResponse("about.html", {"request": request})
+
+
+@router.get("/faq", response_class=HTMLResponse)
+async def faq_page(request: Request):
+    """FAQ page"""
+    return templates.TemplateResponse("faq.html", {"request": request})
+
+
+@router.get("/terms", response_class=HTMLResponse)
+async def terms_page(request: Request):
+    """Terms of Service page"""
+    return templates.TemplateResponse("terms.html", {"request": request})

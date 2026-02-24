@@ -1,0 +1,33 @@
+# BleedRate robots.txt
+# This file tells search engines which pages they can crawl
+
+# Allow all legitimate bots
+User-agent: *
+Allow: /
+Allow: /static/
+Allow: /sitemap.xml
+
+# Disallow private/internal areas
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: *.json$
+Disallow: *?debug=*
+
+# Specific crawler optimizations
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Slow down aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://bleedrate.example.com/sitemap.xml
