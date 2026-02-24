@@ -340,3 +340,107 @@ async def faq_page(request: Request):
 async def terms_page(request: Request):
     """Terms of Service page"""
     return templates.TemplateResponse("terms.html", {"request": request})
+
+
+@router.get("/sitemap.xml", response_class=HTMLResponse)
+async def sitemap_xml(request: Request):
+    """Sitemap for search engines"""
+    # Replace example.com with actual domain
+    sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+    <!-- Home Page -->
+    <url>
+        <loc>https://bleedrate.up.railway.app/</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <mobile:mobile/>
+    </url>
+
+    <!-- Calculator Page -->
+    <url>
+        <loc>https://bleedrate.up.railway.app/</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <mobile:mobile/>
+    </url>
+
+    <!-- About Page -->
+    <url>
+        <loc>https://bleedrate.up.railway.app/about</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+        <mobile:mobile/>
+    </url>
+
+    <!-- FAQ Page -->
+    <url>
+        <loc>https://bleedrate.up.railway.app/faq</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>quarterly</changefreq>
+        <priority>0.8</priority>
+        <mobile:mobile/>
+    </url>
+
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://bleedrate.up.railway.app/privacy</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+        <mobile:mobile/>
+    </url>
+
+    <!-- Terms of Service -->
+    <url>
+        <loc>https://bleedrate.up.railway.app/terms</loc>
+        <lastmod>2026-02-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+        <mobile:mobile/>
+    </url>
+</urlset>"""
+    return sitemap_content
+
+
+@router.get("/robots.txt", response_class=HTMLResponse)
+async def robots_txt(request: Request):
+    """Robots.txt for search engine crawlers"""
+    robots_content = """# BleedRate robots.txt
+# This file tells search engines which pages they can crawl
+
+# Allow all legitimate bots
+User-agent: *
+Allow: /
+Allow: /static/
+Allow: /sitemap.xml
+
+# Disallow private/internal areas
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: *.json$
+Disallow: *?debug=*
+
+# Specific crawler optimizations
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Slow down aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://bleedrate.up.railway.app/sitemap.xml
+"""
+    return robots_content
