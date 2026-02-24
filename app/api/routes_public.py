@@ -1,13 +1,16 @@
 """Public API routes"""
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import StreamingResponse
 from sqlmodel import Session
 from app.api.schemas import CalcRequest, CalcResponse, RatesResponse, ScenarioSaveRequest, ScenarioResponse
 from app.domain.rates import TaxRates
 from app.domain.profiles import PersonalProfile, ConsumptionProfile, TransportAndPropertyProfile, InvestmentProfile
 from app.domain.engine import TaxEngine
+from app.services.pdf_export import PDFExporter
 from app.config import settings
 from db.session import get_session
 from db.models import Scenario
+from datetime import datetime
 import yaml
 
 router = APIRouter()
@@ -92,3 +95,61 @@ def get_scenario(scenario_id: str, session: Session = Depends(get_session)):
         inputs=scenario.inputs,
         outputs=scenario.outputs
     )
+
+
+@router.post("/api/export/pdf")
+def export_pdf(request: CalcRequest, engine: TaxEngine = Depends(get_tax_engine)):
+    """Export tax calculation as PDF report
+    
+    Accepts the same input as /api/calc and returns a downloadable PDF file.
+    """
+    try:
+        # Validate inputs
+        if request.personal.annual_salary < 0:
+            raise HTTPException(status_code=400, detail="Annual salary cannot be negative")
+        
+        # Convert to domain profiles
+        personal = PersonalProfile(**request.personal.model_dump())
+        consumption = ConsumptionProfile(**request.consumption.model_dump())
+        transport_property = TransportAndPropertyProfile(**request.transport_property.model_dump())
+        investment = InvestmentProfile(**request.investment.model_dump())
+        
+        # Run calculation
+        breakdown, total = engine.run(personal, consumption, transport_property, investment)
+        
+        # Calculate effective rate
+        gross_income = personal.annual_salary + personal.annual_bonus
+        effective_rate = (total / gross_income * 100.0) if gross_income > 0 else 0.0
+        
+        # Prepare data for PDF
+        pdf_data = {
+            'personal': {
+                'annual_salary': personal.annual_salary,
+                'annual_bonus': personal.annual_bonus,
+                'age': personal.age,
+                'medical_members': personal.medical_members,
+            },
+            'breakdown': breakdown,
+            'total': total,
+            'effective_rate_vs_gross': effective_rate,
+            'timestamp': datetime.now(),
+        }
+        
+        # Generate PDF
+        exporter = PDFExporter()
+        pdf_bytes = exporter.generate_pdf(pdf_data)
+        
+        # Return as downloadable file
+        return StreamingResponse(
+            iter([pdf_bytes]),
+            media_type="application/pdf",
+            headers={"Content-Disposition": "attachment; filename=bleedrate-tax-report.pdf"}
+        )
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error generating PDF: {str(e)}"
+        )
