@@ -1,10 +1,11 @@
 """View handlers for server-rendered pages"""
 import hashlib
 from typing import Optional
-from fastapi import APIRouter, Request, Depends, Form
+from fastapi import APIRouter, Request, Depends, Form, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from app.config import settings
+from app.data.blog_posts import BLOG_POSTS, BLOG_POSTS_BY_SLUG
 from app.domain.rates import TaxRates
 from app.domain.profiles import PersonalProfile, ConsumptionProfile, TransportAndPropertyProfile, InvestmentProfile, TravelProfile
 from app.domain.engine import TaxEngine
@@ -342,105 +343,91 @@ async def terms_page(request: Request):
     return templates.TemplateResponse("terms.html", {"request": request})
 
 
+@router.get("/blog", response_class=HTMLResponse)
+async def blog_list(request: Request):
+    """Blog post listing page"""
+    return templates.TemplateResponse(
+        "blog/list.html",
+        {"request": request, "posts": BLOG_POSTS}
+    )
+
+
+@router.get("/blog/{slug}", response_class=HTMLResponse)
+async def blog_post(slug: str, request: Request):
+    """Individual blog post page"""
+    post = BLOG_POSTS_BY_SLUG.get(slug)
+    if not post:
+        raise HTTPException(status_code=404, detail="Article not found")
+    return templates.TemplateResponse(
+        "blog/post.html",
+        {"request": request, "post": post}
+    )
+
+
 @router.get("/sitemap.xml", response_class=HTMLResponse)
 async def sitemap_xml(request: Request):
     """Sitemap for search engines"""
-    # Replace example.com with actual domain
-    sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
-    <!-- Home Page -->
+    blog_urls = "\n".join([
+        f"""    <url>
+        <loc>https://bleedrate.co.za/blog/{post["slug"]}</loc>
+        <lastmod>{post["published"]}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>""" for post in BLOG_POSTS
+    ])
+    sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://bleedrate.up.railway.app/</loc>
-        <lastmod>2026-02-24</lastmod>
+        <loc>https://bleedrate.co.za/</loc>
+        <lastmod>2026-03-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <mobile:mobile/>
     </url>
-
-    <!-- Calculator Page -->
     <url>
-        <loc>https://bleedrate.up.railway.app/</loc>
-        <lastmod>2026-02-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-        <mobile:mobile/>
-    </url>
-
-    <!-- About Page -->
-    <url>
-        <loc>https://bleedrate.up.railway.app/about</loc>
-        <lastmod>2026-02-24</lastmod>
+        <loc>https://bleedrate.co.za/about</loc>
+        <lastmod>2026-03-01</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-        <mobile:mobile/>
+        <priority>0.7</priority>
     </url>
-
-    <!-- FAQ Page -->
     <url>
-        <loc>https://bleedrate.up.railway.app/faq</loc>
-        <lastmod>2026-02-24</lastmod>
+        <loc>https://bleedrate.co.za/blog</loc>
+        <lastmod>2026-03-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+{blog_urls}
+    <url>
+        <loc>https://bleedrate.co.za/faq</loc>
+        <lastmod>2026-03-01</lastmod>
         <changefreq>quarterly</changefreq>
         <priority>0.8</priority>
-        <mobile:mobile/>
     </url>
-
-    <!-- Privacy Policy -->
     <url>
-        <loc>https://bleedrate.up.railway.app/privacy</loc>
-        <lastmod>2026-02-24</lastmod>
+        <loc>https://bleedrate.co.za/privacy</loc>
+        <lastmod>2026-03-01</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.7</priority>
-        <mobile:mobile/>
+        <priority>0.6</priority>
     </url>
-
-    <!-- Terms of Service -->
     <url>
-        <loc>https://bleedrate.up.railway.app/terms</loc>
-        <lastmod>2026-02-24</lastmod>
+        <loc>https://bleedrate.co.za/terms</loc>
+        <lastmod>2026-03-01</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.7</priority>
-        <mobile:mobile/>
+        <priority>0.6</priority>
     </url>
 </urlset>"""
-    return sitemap_content
+    from fastapi.responses import Response
+    return Response(content=sitemap_content, media_type="application/xml")
 
 
 @router.get("/robots.txt", response_class=HTMLResponse)
 async def robots_txt(request: Request):
     """Robots.txt for search engine crawlers"""
-    robots_content = """# BleedRate robots.txt
-# This file tells search engines which pages they can crawl
-
-# Allow all legitimate bots
-User-agent: *
+    robots_content = """User-agent: *
 Allow: /
-Allow: /static/
-Allow: /sitemap.xml
+Disallow: /admin
+Disallow: /api/
 
-# Disallow private/internal areas
-Disallow: /admin/
-Disallow: /api/internal/
-Disallow: *.json$
-Disallow: *?debug=*
-
-# Specific crawler optimizations
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Slow down aggressive crawlers
-User-agent: AhrefsBot
-Crawl-delay: 10
-
-User-agent: SemrushBot
-Crawl-delay: 10
-
-# Sitemap location
-Sitemap: https://bleedrate.up.railway.app/sitemap.xml
+Sitemap: https://bleedrate.co.za/sitemap.xml
 """
-    return robots_content
+    from fastapi.responses import Response
+    return Response(content=robots_content, media_type="text/plain")
