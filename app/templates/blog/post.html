@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - BleedRate{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-12 max-w-3xl">
+
+  <!-- Breadcrumb -->
+  <nav class="text-sm text-gray-500 mb-6">
+    <a href="/" class="hover:text-gray-300">Home</a>
+    <span class="mx-2">›</span>
+    <a href="/blog" class="hover:text-gray-300">Tax Guides</a>
+    <span class="mx-2">›</span>
+    <span class="text-gray-400">{{ post.title }}</span>
+  </nav>
+
+  <!-- Article header -->
+  <header class="mb-8">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="text-xs text-gray-500">Published: {{ post.published }}</span>
+      <span class="text-xs text-gray-600">•</span>
+      <span class="text-xs text-gray-500">{{ post.reading_time }} read</span>
+      <span class="text-xs bg-red-900 text-red-200 px-2 py-0.5 rounded">Tax Year {{ post.tax_year }}</span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-bold text-red-100 mb-4">{{ post.title }}</h1>
+    <p class="text-gray-300 text-lg">{{ post.meta_description }}</p>
+  </header>
+
+  <!-- Disclaimer banner -->
+  <div class="bg-yellow-900 bg-opacity-40 border-l-4 border-yellow-500 p-4 mb-8 rounded-r text-sm text-yellow-200">
+    <strong>📋 Disclaimer:</strong> This article is for educational purposes only and is not professional tax advice. 
+    Tax rates and legislation may change. Consult a qualified tax professional before making financial decisions.
+    Last updated: {{ post.updated }}.
+  </div>
+
+  <!-- Article content -->
+  <article class="text-gray-200 prose-content">
+    {{ post.content | safe }}
+  </article>
+
+  <!-- Post footer -->
+  <footer class="mt-10 pt-8 border-t border-gray-700">
+    <div class="bg-gray-900 border border-red-900 rounded-lg p-6 text-center">
+      <h3 class="text-xl font-bold text-red-100 mb-2">Calculate Your Own Tax Footprint</h3>
+      <p class="text-gray-400 text-sm mb-4">
+        Enter your income, spending, and lifestyle details to get your personalised SA tax breakdown.
+      </p>
+      <a href="/" class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition">
+        Open Calculator →
+      </a>
+    </div>
+
+    <div class="mt-6 flex flex-wrap gap-3 justify-between items-center">
+      <a href="/blog" class="text-sm text-gray-400 hover:text-gray-200 transition">
+        ← All Tax Guides
+      </a>
+      <p class="text-xs text-gray-600">
+        Content sourced from SARS, National Treasury, and DMRE publications. 
+        For official guidance, visit <a href="https://www.sars.gov.za" target="_blank" rel="noopener" class="text-blue-500">sars.gov.za</a>.
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+<!-- JSON-LD Article schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ post.title }}",
+  "description": "{{ post.meta_description }}",
+  "datePublished": "{{ post.published }}",
+  "dateModified": "{{ post.published }}",
+  "author": {
+    "@type": "Organization",
+    "name": "BleedRate"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BleedRate",
+    "url": "https://bleedrate.co.za"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bleedrate.co.za/blog/{{ post.slug }}"
+  }
+}
+</script>
+
+{% endblock %}
