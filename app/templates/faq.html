@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}FAQ - BleedRate Tax Calculator{% endblock %}
+{% block title %}FAQ — South African Tax Questions Answered | BleedRate{% endblock %}
 
 {% block content %}
 <div class="container mx-auto px-4 py-12 max-w-4xl">
     <div class="bg-gray-800 rounded-lg border-2 border-red-900 p-8 text-gray-100">
         <h1 class="text-4xl font-bold text-red-100 mb-2">Frequently Asked Questions</h1>
-        <p class="text-gray-400 mb-8">Got questions? We probably have answers. If not, <a href="mailto:contact@bleedrate.example.com" class="text-blue-400 hover:text-blue-300 underline">get in touch</a>.</p>
+        <p class="text-gray-400 mb-8">Answers to the most common questions about BleedRate and South African tax. Still stuck? <a href="/contact" class="text-blue-400 hover:text-blue-300 underline">Get in touch</a>.</p>
 
-        <!-- FAQ Schema Markup (JSON-LD) -->
+        <!-- FAQPage JSON-LD Schema -->
         <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -16,90 +16,122 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How accurate is the BleedRate calculator?",
+              "name": "How accurate is BleedRate's calculator?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BleedRate provides estimates based on official South African tax rates from SARS and Treasury. However, tax calculations are complex and your actual tax liability may differ based on your specific circumstances, provincial variations, tax deductions, exemptions, and rebates. This calculator is for educational purposes and NOT a substitute for professional tax advice. Always consult a qualified tax professional (CPA, accountant, or tax advisor) before making important tax decisions. For accurate filing, work directly with SARS or a tax professional."
+                "text": "BleedRate uses official SARS and National Treasury rates for the current tax year (2024/25), and the calculations are accurate for a standard employed taxpayer without unusual deductions. That said, your personal situation — retirement fund contributions, medical aid credits, investment structures, business income, or provincial differences — can cause your actual liability to differ. We verify rates against SARS publications each tax year and flag the date rates were last updated. For planning or filing purposes, BleedRate gives you an excellent starting point, but you should verify with a registered tax practitioner before making major decisions."
               }
             },
             {
               "@type": "Question",
-              "name": "Do you store my data or calculations?",
+              "name": "Does BleedRate store my personal or financial information?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. Your calculations run entirely in your browser and are NOT stored on our servers by default. When you close your browser, your data is deleted from your device. We do not save your personal or financial information unless you explicitly choose to save your results (future feature). We collect only basic analytics data (page views, traffic sources) to improve the site. For full details, see our Privacy Policy."
+                "text": "No. BleedRate does not store any personally identifiable information you enter into the calculator. Your salary, age, and spending figures are sent to our server only to perform the calculation and are never written to a database or linked to your identity. We collect standard anonymous analytics (page views, country of visit) to understand how the site is used. No financial data is sold or shared with third parties. If you use browser autofill or copy-paste values, those remain in your own browser and are outside BleedRate's control. For full details see our Privacy Policy."
               }
             },
             {
               "@type": "Question",
-              "name": "What taxes does BleedRate include?",
+              "name": "What taxes does BleedRate include in the calculation?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BleedRate calculates your TOTAL tax burden, not just income tax. We include: PAYE (income tax), UIF, VAT, fuel levies, excise duties (alcohol, tobacco), electricity levies, municipal rates, vehicle license fees, property transfer duties, capital gains tax, dividends tax, import duties, airport taxes, and more. We also estimate embedded corporate taxes in prices. This gives you the complete picture of how much government revenue you generate annually."
+                "text": "BleedRate covers the full spectrum of taxes that flow from a South African household to government: PAYE (income tax across all 7 brackets), UIF, VAT on consumption spending, the General Fuel Levy and RAF levy on petrol and diesel, the Carbon Tax component on fuel, electricity environmental levies, excise duties on beer, wine, spirits, cigarettes and cigars, the Health Promotion Levy on sugary beverages, municipal rates and utility charges, vehicle licence fees, toll fees, transfer duty on property, Capital Gains Tax, Dividends Tax, import duties on consumer goods and online purchases, airport taxes, accommodation levies, and estimated embedded corporate taxes passed through in retail prices."
               }
             },
             {
               "@type": "Question",
-              "name": "Why is my BleedRate number so much higher than my income tax?",
+              "name": "What taxes are NOT included in BleedRate's calculation?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Because you're seeing the REAL number for the first time. Income tax (PAYE) is only ~30-40% of your total government revenue. The rest comes from VAT (15% of spending), fuel levies, excise duties, municipal charges, embedded corporate taxes, and dozens of other hidden levies. Most people only think about income tax because it's deducted from their paystub. BleedRate reveals the full picture: you typically pay 30-50% of gross income to government when you add everything up."
+                "text": "BleedRate intentionally excludes taxes that either don't apply to most individuals or are too complex to generalise: estate duty (only on death, estates above R3.5m), donations tax (above R100k/year exemption), Securities Transfer Tax on share trades, mining royalties, companies' corporate income tax (unless modelled as 'embedded'), Skills Development Levy (SDL) paid by employers, turnover tax for micro businesses, and any taxes specific to trusts or partnerships. Provisional tax is also not separately modelled — it's an advance payment of income tax and is already captured by the PAYE calculation. If any of these categories apply to you, consult a tax professional."
               }
             },
             {
               "@type": "Question",
-              "name": "Is BleedRate a substitute for professional tax advice?",
+              "name": "How is PAYE calculated in South Africa?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Absolutely not. This is an educational tool, not professional tax advice. Tax law is complex and your personal situation (deductions, exemptions, income structure, province, investments) affects your actual liability. BleedRate gives you estimates to help you understand the landscape, but DO NOT use it to file your taxes or make major financial decisions without consulting a qualified tax professional. A tax advisor or accountant can optimize your situation and ensure compliance."
+                "text": "PAYE (Pay As You Earn) is South Africa's withholding income tax. Your employer deducts it monthly from your salary and remits it to SARS on your behalf. The calculation uses seven progressive tax brackets: 18% on income up to R237,100, then stepping up to 45% on income above R1,817,000 for the 2024/25 tax year. From the gross tax liability you subtract your primary rebate (R17,235 for all taxpayers), secondary rebate (R9,444 if you're 65+), tertiary rebate (R3,145 if you're 75+), and medical aid tax credits (R364 per month for the first two beneficiaries, R246 per additional). Contributions to qualifying retirement funds reduce your taxable income, subject to a cap of 27.5% of remuneration or R350,000 per year."
               }
             },
             {
               "@type": "Question",
-              "name": "How often are tax rates updated?",
+              "name": "What is the fuel levy and how much do I pay?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Tax rates in South Africa change annually. The government typically announces new rates in February/March for the tax year starting April 1st. We update BleedRate rates every tax year to reflect current law. However, rates can change mid-year (e.g., fuel levies adjust quarterly). We update as soon as official changes are published. Check the 'Last Updated' date on each page to see when rates were last refreshed."
+                "text": "Every litre of petrol in South Africa includes a government tax component that has nothing to do with the oil price. For the 2024/25 tax year: the General Fuel Levy is R4.01/litre for petrol (R3.85 for diesel), the Road Accident Fund (RAF) levy is R2.18/litre for both, and the Carbon Tax component is R0.14/litre for petrol and R0.17/litre for diesel. That totals approximately R6.33 on every litre of petrol and R6.20 on every litre of diesel. If you fill a 50-litre tank twice a month, you're paying roughly R634/month (R7,608/year) directly to government through fuel taxes alone — before the petrol price even comes into it."
               }
             },
             {
               "@type": "Question",
-              "name": "Why don't you include deductions or exemptions?",
+              "name": "What is UIF and how much does it cost me?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BleedRate provides baseline estimates for a standard taxpayer. The calculator doesn't account for personal deductions (mortgage interest, medical expenses, donations) or exemptions because these vary widely by individual. To get a more accurate estimate for YOUR situation, adjust the 'retirement contributions' field, which reduces taxable income. But for a complete picture with all deductions applied, consult a tax professional who knows your full financial picture."
+                "text": "The Unemployment Insurance Fund (UIF) is a mandatory government-run insurance programme. Both you and your employer each contribute 1% of your monthly remuneration to UIF. The contribution is capped at a monthly remuneration ceiling of R17,712 (2024/25), which means the maximum employee contribution is R177.12 per month (R2,125.44 per year). If you earn below the ceiling, you pay exactly 1% of your gross salary. The fund pays short-term relief if you lose your job, take maternity leave, or become ill. Domestic workers and part-time employees are also covered. Self-employed individuals who register a company are required to contribute on behalf of any employees, but sole proprietors are excluded."
               }
             },
             {
               "@type": "Question",
-              "name": "Can I use BleedRate for previous tax years?",
+              "name": "What is VAT and which items are zero-rated?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BleedRate is designed for the current tax year. Tax rates change annually, so a 2024 calculator won't be accurate for 2023 or 2025. If you need to calculate liability for a previous year, you could manually adjust rates, but it's better to work with a tax professional who has historical rate tables. We may add year-selector functionality in the future."
+                "text": "Value-Added Tax (VAT) is a consumption tax charged at 15% on most goods and services sold in South Africa. The tax is embedded in the retail price — the seller collects it on SARS's behalf. A limited basket of essential foods is zero-rated (charged at 0%), meaning no VAT is added: brown bread, maize meal, samp, rice, dried beans, lentils, pilchards/sardines in tins, eggs, milk (unflavoured), fruit and vegetables, vegetable oil, and a few others. Importantly, restaurant meals, takeaways, luxury foods, clothing, electronics, fuel, and services are all standard-rated at 15%. Exports are also zero-rated. Zero-rating is not the same as exemption — exempt items include residential rents and certain financial services."
               }
             },
             {
               "@type": "Question",
-              "name": "Is BleedRate an official SARS tool?",
+              "name": "Why does my total tax burden look higher than my PAYE?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. BleedRate is an independent, third-party educational tool. It is NOT officially endorsed or maintained by SARS. While we use official SARS tax rates and regulations, BleedRate is a private project. For official tax calculations or filing, visit the SARS website (www.sars.gov.za) or contact SARS directly."
+                "text": "Because PAYE is only one slice of your tax bill — typically 30–40% of the total. The rest is collected indirectly through your purchases and lifestyle. Consider a taxpayer earning R600,000/year: their PAYE might be R130,000, but they also pay roughly R32,000 in VAT on spending, R12,000 in fuel levies, R15,000 in municipal charges, and thousands more in excise duties, import levies, and embedded corporate taxes. All of these are government revenue. BleedRate is designed to make this visible. The number can feel alarming at first, but it's accurate — most middle-income South Africans contribute 35–50% of gross income to government when all taxes are counted."
               }
             },
             {
               "@type": "Question",
-              "name": "What about state/provincial taxes?",
+              "name": "What is the difference between marginal tax rate and effective tax rate?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BleedRate calculates national taxes (income tax, VAT, fuel levies, etc.). Provincial variations exist for municipal rates, property taxes, and some utility charges, which you can input manually in the 'Municipal' section. For province-specific tax liabilities (e.g., provincial income tax, if applicable), consult a local tax professional or SARS."
+                "text": "Your marginal tax rate is the percentage you pay on the next rand you earn — i.e., the rate of the top bracket your income falls into. For example, if your salary puts you in the 31% bracket, each additional rand of income is taxed at 31%. Your effective (average) tax rate is your total income tax liability divided by your total taxable income. Because South Africa uses progressive brackets, your effective rate is always lower than your marginal rate. Someone in the 36% marginal bracket might have an effective rate of only 24% once rebates and lower-bracket portions are factored in. BleedRate shows you the effective rate across ALL taxes (not just income tax), which is the most meaningful measure of your overall government contribution."
               }
             },
             {
               "@type": "Question",
-              "name": "How do I reduce my tax burden?",
+              "name": "How do medical aid credits affect my tax?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BleedRate shows you where your money flows. With that insight, you can make informed decisions: contribute to retirement (reduces taxable income), choose fuel-efficient vehicles (lower fuel levy), buy locally-assembled cars (no import duty), adjust consumption habits, claim all eligible deductions, optimize your investment structure. But tax planning is complex. A qualified tax professional or financial advisor can create a personalized strategy for YOUR situation. Don't guess—consult a professional."
+                "text": "South Africa replaced medical aid expense deductions with fixed monthly tax credits from the 2012/13 tax year onwards. For 2024/25, you receive a credit of R364/month for the first beneficiary (yourself), R364/month for the second beneficiary (a spouse/partner), and R246/month for each additional beneficiary (children, dependants). These credits are subtracted directly from your tax liability — not from your taxable income — making them more valuable than a deduction at lower income levels. If your total medical aid premiums and out-of-pocket medical expenses exceed 7.5% of taxable income, you may qualify for an additional 33.3% credit on the excess. The BleedRate calculator applies the standard credits based on the number of medical aid members you enter."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are provisional taxes and who must pay them?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Provisional tax is not a separate tax — it's a mechanism for paying income tax in advance when tax isn't withheld at source. Salaried employees have PAYE deducted monthly, so they're automatically covered. But freelancers, independent contractors, directors who receive income not subject to PAYE, landlords with rental income, and investors with significant investment income must register as provisional taxpayers. You make two advance payments per year (August and February) based on your estimated annual income, and a top-up if needed after year-end. Penalties apply for underpayment. If you earn more than R30,000 of non-PAYE income in a year, you likely need to register. Consult a tax practitioner to set up and manage provisional tax correctly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I legally reduce my tax burden?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The most impactful legal strategies for South African taxpayers include: maximising retirement fund contributions (up to 27.5% of remuneration or R350,000/year reduces taxable income rand-for-rand); using a Tax-Free Savings Account (TFSA, up to R36,000/year with no tax on growth or withdrawals); claiming all eligible medical credits and out-of-pocket medical expenses; deducting home office expenses if you genuinely work from home (employed) or as a business expense (self-employed); structuring investment income efficiently (e.g., inside a retirement fund rather than a personal account); and timing large capital gains across tax years to use your R40,000 annual exclusion effectively. Note that aggressive tax avoidance can trigger SARS scrutiny — always work within the letter and spirit of the law with guidance from a registered tax practitioner."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is BleedRate the same as a SARS eFiling calculation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No — they serve very different purposes. SARS eFiling is the official government platform for submitting your annual tax return and receiving an assessment. It uses your actual IRP5 data from employers, IT3 investment certificates, and your claimed deductions to produce a precise, legally binding assessment. BleedRate is an independent educational estimator that gives you a real-time estimate of your annual tax footprint based on inputs you provide. BleedRate is faster and broader (including VAT, fuel levies, municipal taxes, etc.), but it cannot replicate the precision of a formal SARS assessment. Do not use BleedRate as a substitute for eFiling. It's a planning and awareness tool, not a filing tool."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I consult a professional tax advisor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You should consult a registered tax practitioner (look for SAIT or SAIPA membership) whenever: you have income from multiple sources (salary + freelance + rental + investments); you're starting or closing a business; you've sold a property, investment, or business interest and face a capital gain; you've received a SARS letter, audit notice, or penalty; you want to structure your affairs to minimise tax legally; you're emigrating or changing tax residency; or when your annual income exceeds R500,000 and the stakes of getting it wrong are material. BleedRate can help you understand where your money goes and spark the right questions, but it cannot replace the personalised advice of a professional who knows your complete financial picture."
               }
             }
           ]
@@ -108,314 +140,58 @@
 
         <!-- FAQ Accordion -->
         <div class="space-y-4">
-            <!-- Q1 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>1. How accurate is the BleedRate calculator?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            BleedRate provides <strong>estimates</strong> based on official South African tax rates from SARS and Treasury. However, tax calculations are complex and your actual tax liability may differ based on:
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4 mb-3">
-                            <li>Your specific circumstances (age, dependents, medical status)</li>
-                            <li>Personal deductions and exemptions you qualify for</li>
-                            <li>Provincial variations in rates and municipal charges</li>
-                            <li>Your unique income structure (salary vs. business vs. investments)</li>
-                            <li>Tax law changes mid-year</li>
-                        </ul>
-                        <p class="bg-yellow-900 bg-opacity-40 border-l-4 border-yellow-500 p-3 rounded">
-                            <strong class="text-yellow-300">Remember:</strong> This calculator is <strong>for educational purposes only</strong> and is NOT a substitute for professional tax advice. Always consult a qualified tax professional (CPA, accountant, or tax advisor) before making important tax decisions or filing your taxes.
-                        </p>
-                    </div>
-                </details>
-            </div>
 
-            <!-- Q2 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>2. Do you store my data or calculations?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            <strong class="text-green-300">No.</strong> Here's what actually happens:
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 ml-4">
-                            <li><strong>Your calculations run in your browser</strong> and are NOT transmitted to our servers unless you explicitly save them</li>
-                            <li><strong>No permanent storage:</strong> When you close your browser, your data is deleted from your device</li>
-                            <li><strong>No data selling:</strong> We do not sell your personal or financial information to third parties</li>
-                            <li><strong>Minimal analytics:</strong> We collect basic site analytics (page views, traffic sources) to improve the site, but not your personal data</li>
-                        </ul>
-                        <p class="mt-3 text-sm text-gray-400">For complete details, see our <a href="/privacy" class="text-blue-400 hover:text-blue-300 underline">Privacy Policy</a>.</p>
-                    </div>
-                </details>
-            </div>
+            {% set faqs = [
+              ("1. How accurate is BleedRate's calculator?", "BleedRate uses official SARS and National Treasury rates for the current tax year (2024/25), and the calculations are accurate for a standard employed taxpayer without unusual deductions. That said, your personal situation — retirement fund contributions, medical aid credits, investment structures, business income, or provincial differences — can cause your actual liability to differ. We verify rates against SARS publications each tax year and flag the date rates were last updated. For planning or filing purposes, BleedRate gives you an excellent starting point, but you should verify with a registered tax practitioner before making major decisions."),
+              ("2. Does BleedRate store my personal or financial information?", "No. BleedRate does not store any personally identifiable information you enter into the calculator. Your salary, age, and spending figures are sent to our server only to perform the calculation and are never written to a database or linked to your identity. We collect standard anonymous analytics (page views, country of visit) to understand how the site is used. No financial data is sold or shared with third parties. If you use browser autofill or copy-paste values, those remain in your own browser and are outside BleedRate's control. For full details see our <a href='/privacy' class='text-blue-400 hover:text-blue-300 underline'>Privacy Policy</a>."),
+              ("3. What taxes does BleedRate include in the calculation?", "BleedRate covers the full spectrum of taxes that flow from a South African household to government: PAYE (income tax across all 7 brackets), UIF, VAT on consumption spending, the General Fuel Levy and RAF levy on petrol and diesel, the Carbon Tax component on fuel, electricity environmental levies, excise duties on beer, wine, spirits, cigarettes and cigars, the Health Promotion Levy on sugary beverages, municipal rates and utility charges, vehicle licence fees, toll fees, transfer duty on property, Capital Gains Tax, Dividends Tax, import duties on consumer goods and online purchases, airport taxes, accommodation levies, and estimated embedded corporate taxes passed through in retail prices."),
+              ("4. What taxes are NOT included?", "BleedRate intentionally excludes taxes that either don't apply to most individuals or are too complex to generalise: estate duty (only on death, estates above R3.5m), donations tax (above R100k/year exemption), Securities Transfer Tax on share trades, mining royalties, companies' corporate income tax (unless modelled as 'embedded'), Skills Development Levy (SDL) paid by employers, turnover tax for micro businesses, and any taxes specific to trusts or partnerships. Provisional tax is also not separately modelled — it's an advance payment of income tax and is already captured by the PAYE calculation. If any of these categories apply to you, consult a tax professional."),
+              ("5. How is PAYE calculated in South Africa?", "PAYE (Pay As You Earn) is South Africa's withholding income tax. Your employer deducts it monthly from your salary and remits it to SARS on your behalf. The calculation uses seven progressive tax brackets: 18% on income up to R237,100, then stepping up to 45% on income above R1,817,000 for the 2024/25 tax year. From the gross tax liability you subtract your primary rebate (R17,235 for all taxpayers), secondary rebate (R9,444 if you're 65+), tertiary rebate (R3,145 if you're 75+), and medical aid tax credits (R364 per month for the first two beneficiaries, R246 per additional). Contributions to qualifying retirement funds reduce your taxable income, subject to a cap of 27.5% of remuneration or R350,000 per year."),
+              ("6. What is the fuel levy and how much do I pay?", "Every litre of petrol in South Africa includes a government tax component that has nothing to do with the oil price. For the 2024/25 tax year: the General Fuel Levy is R4.01/litre for petrol (R3.85 for diesel), the Road Accident Fund (RAF) levy is R2.18/litre for both, and the Carbon Tax component is R0.14/litre for petrol and R0.17/litre for diesel. That totals approximately R6.33 on every litre of petrol and R6.20 on every litre of diesel. If you fill a 50-litre tank twice a month, you're paying roughly R634/month (R7,608/year) directly to government through fuel taxes alone — before the petrol price even comes into it."),
+              ("7. What is UIF and how much does it cost me?", "The Unemployment Insurance Fund (UIF) is a mandatory government-run insurance programme. Both you and your employer each contribute 1% of your monthly remuneration to UIF. The contribution is capped at a monthly remuneration ceiling of R17,712 (2024/25), which means the maximum employee contribution is R177.12 per month (R2,125.44 per year). If you earn below the ceiling, you pay exactly 1% of your gross salary. The fund pays short-term relief if you lose your job, take maternity leave, or become ill. Domestic workers and part-time employees are also covered. Self-employed individuals who register a company are required to contribute on behalf of any employees, but sole proprietors are excluded."),
+              ("8. What is VAT and which items are zero-rated?", "Value-Added Tax (VAT) is a consumption tax charged at 15% on most goods and services sold in South Africa. The tax is embedded in the retail price — the seller collects it on SARS's behalf. A limited basket of essential foods is zero-rated (charged at 0%): brown bread, maize meal, samp, rice, dried beans, lentils, pilchards/sardines in tins, eggs, milk (unflavoured), fruit and vegetables, vegetable oil, and a few others. Importantly, restaurant meals, takeaways, luxury foods, clothing, electronics, fuel, and services are all standard-rated at 15%. Exports are also zero-rated. Zero-rating is not the same as exemption — exempt items include residential rents and certain financial services."),
+              ("9. Why does my total tax burden look higher than my PAYE?", "Because PAYE is only one slice of your tax bill — typically 30–40% of the total. The rest is collected indirectly through your purchases and lifestyle. Consider a taxpayer earning R600,000/year: their PAYE might be R130,000, but they also pay roughly R32,000 in VAT on spending, R12,000 in fuel levies, R15,000 in municipal charges, and thousands more in excise duties, import levies, and embedded corporate taxes. All of these are government revenue. BleedRate is designed to make this visible. The number can feel alarming at first, but it's accurate — most middle-income South Africans contribute 35–50% of gross income to government when all taxes are counted."),
+              ("10. What is the difference between marginal tax rate and effective tax rate?", "Your marginal tax rate is the percentage you pay on the next rand you earn — i.e., the rate of the top bracket your income falls into. For example, if your salary puts you in the 31% bracket, each additional rand of income is taxed at 31%. Your effective (average) tax rate is your total income tax liability divided by your total taxable income. Because South Africa uses progressive brackets, your effective rate is always lower than your marginal rate. Someone in the 36% marginal bracket might have an effective rate of only 24% once rebates and lower-bracket portions are factored in. BleedRate shows you the effective rate across ALL taxes (not just income tax), which is the most meaningful measure of your overall government contribution."),
+              ("11. How do medical aid credits affect my tax?", "South Africa replaced medical aid expense deductions with fixed monthly tax credits from the 2012/13 tax year onwards. For 2024/25, you receive a credit of R364/month for the first beneficiary (yourself), R364/month for the second beneficiary (a spouse/partner), and R246/month for each additional beneficiary (children, dependants). These credits are subtracted directly from your tax liability — not from your taxable income — making them more valuable than a deduction at lower income levels. If your total medical aid premiums and out-of-pocket medical expenses exceed 7.5% of taxable income, you may qualify for an additional 33.3% credit on the excess. The BleedRate calculator applies the standard credits based on the number of medical aid members you enter."),
+              ("12. What are provisional taxes and who must pay them?", "Provisional tax is not a separate tax — it's a mechanism for paying income tax in advance when tax isn't withheld at source. Salaried employees have PAYE deducted monthly, so they're automatically covered. But freelancers, independent contractors, directors who receive income not subject to PAYE, landlords with rental income, and investors with significant investment income must register as provisional taxpayers. You make two advance payments per year (August and February) based on your estimated annual income, and a top-up if needed after year-end. Penalties apply for underpayment. If you earn more than R30,000 of non-PAYE income in a year, you likely need to register. Consult a tax practitioner to set up and manage provisional tax correctly."),
+              ("13. How can I legally reduce my tax burden?", "The most impactful legal strategies for South African taxpayers include: maximising retirement fund contributions (up to 27.5% of remuneration or R350,000/year reduces taxable income rand-for-rand); using a Tax-Free Savings Account (TFSA, up to R36,000/year with no tax on growth or withdrawals); claiming all eligible medical credits and out-of-pocket medical expenses; deducting home office expenses if you genuinely work from home; structuring investment income efficiently (e.g., inside a retirement fund rather than a personal account); and timing large capital gains across tax years to use your R40,000 annual exclusion effectively. Always work within the letter and spirit of the law — aggressive avoidance schemes can trigger SARS scrutiny and penalties."),
+              ("14. Is BleedRate the same as a SARS eFiling calculation?", "No — they serve very different purposes. SARS eFiling is the official government platform for submitting your annual tax return. It uses your actual IRP5 data from employers, IT3 investment certificates, and your claimed deductions to produce a precise, legally binding assessment. BleedRate is an independent educational estimator that gives you a real-time estimate of your annual tax footprint based on inputs you provide. BleedRate is faster and broader (including VAT, fuel levies, municipal taxes, etc.), but it cannot replicate the precision of a formal SARS assessment. Do not use BleedRate as a substitute for eFiling. It is a planning and awareness tool, not a filing tool."),
+              ("15. When should I consult a professional tax advisor?", "You should consult a registered tax practitioner (look for SAIT or SAIPA membership) whenever: you have income from multiple sources (salary + freelance + rental + investments); you're starting or closing a business; you've sold a property, investment, or business interest and face a capital gain; you've received a SARS letter, audit notice, or penalty; you want to structure your affairs to minimise tax legally; you're emigrating or changing tax residency; or when your annual income exceeds R500,000 and the stakes of getting it wrong are material. BleedRate can help you understand where your money goes and spark the right questions, but it cannot replace the personalised advice of a professional who knows your complete financial picture.")
+            ] %}
 
-            <!-- Q3 -->
+            {% for question, answer in faqs %}
             <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
                 <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>3. What taxes does BleedRate include?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
+                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors list-none">
+                        <span>{{ question }}</span>
+                        <span class="text-red-300 ml-4 shrink-0 transition-transform group-open:rotate-180">▼</span>
                     </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            BleedRate calculates your <strong>TOTAL tax burden</strong>, not just income tax. We include:
-                        </p>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <h4 class="font-bold text-red-300 mb-2">Direct Taxes</h4>
-                                <ul class="list-disc list-inside space-y-1 text-sm">
-                                    <li>PAYE (income tax)</li>
-                                    <li>UIF contributions</li>
-                                    <li>Dividends tax</li>
-                                    <li>Capital gains tax</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-red-300 mb-2">Consumption Taxes</h4>
-                                <ul class="list-disc list-inside space-y-1 text-sm">
-                                    <li>VAT (15%)</li>
-                                    <li>Fuel levies</li>
-                                    <li>Excise duties (alcohol, tobacco)</li>
-                                    <li>Health promotion levy</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-red-300 mb-2">Property & Transport</h4>
-                                <ul class="list-disc list-inside space-y-1 text-sm">
-                                    <li>Municipal rates</li>
-                                    <li>Vehicle license fees</li>
-                                    <li>Transfer duty</li>
-                                    <li>Toll fees</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-red-300 mb-2">Travel & Other</h4>
-                                <ul class="list-disc list-inside space-y-1 text-sm">
-                                    <li>Airport taxes</li>
-                                    <li>Import duties</li>
-                                    <li>Municipal utilities</li>
-                                    <li>Embedded corporate taxes</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p class="mt-3 text-sm text-gray-400">
-                            This gives you the complete picture of how much government revenue you generate annually.
-                        </p>
+                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-300 leading-relaxed">
+                        <p>{{ answer | safe }}</p>
                     </div>
                 </details>
             </div>
+            {% endfor %}
 
-            <!-- Q4 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>4. Why is my BleedRate number so much higher than my income tax?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            Because you're seeing the <strong>REAL number for the first time.</strong>
-                        </p>
-                        <div class="bg-red-900 bg-opacity-30 border-l-4 border-red-500 p-3 rounded mb-3">
-                            <p>
-                                Income tax (PAYE) is only about <strong>30-40% of your total tax burden</strong>. The rest comes from everywhere else:
-                            </p>
-                        </div>
-                        <ul class="list-disc list-inside space-y-1 ml-4 mb-3">
-                            <li>VAT: 15% of everything you spend</li>
-                            <li>Fuel levies: ~R6 per litre, 12 months a year</li>
-                            <li>Excise duties: On alcohol, tobacco, vehicles</li>
-                            <li>Municipal charges: Water, sewerage, refuse, rates</li>
-                            <li>Embedded corporate taxes: Hidden in prices you pay</li>
-                            <li>Travel taxes: Airport fees, accommodation levies</li>
-                        </ul>
-                        <p class="text-yellow-300 bg-yellow-900 bg-opacity-30 border-l-4 border-yellow-500 p-3 rounded">
-                            <strong>Result:</strong> You typically pay <strong>30-50% of gross income to government</strong> when you add everything up. Most people only see PAYE on their paystub, so they think they're paying less.
-                        </p>
-                    </div>
-                </details>
-            </div>
-
-            <!-- Q5 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>5. Is BleedRate a substitute for professional tax advice?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3 font-bold text-red-300">
-                            Absolutely NOT.
-                        </p>
-                        <p class="mb-3">
-                            BleedRate is an <strong>educational tool</strong>, not professional tax advice. Tax law is complex, and your personal situation affects your actual liability significantly:
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 ml-4">
-                            <li><strong>Deductions:</strong> Medical expenses, donations, mortgage interest, business expenses</li>
-                            <li><strong>Exemptions:</strong> Rebates based on age, status, disability</li>
-                            <li><strong>Income structure:</strong> Salary vs. business income vs. investments</li>
-                            <li><strong>Province:</strong> Different municipal and provincial rates</li>
-                            <li><strong>Timing:</strong> When you earn vs. spend</li>
-                        </ul>
-                        <p class="mt-3 text-yellow-300 bg-yellow-900 bg-opacity-30 border-l-4 border-yellow-500 p-3 rounded">
-                            <strong>For accurate filing, tax planning, or major financial decisions, consult a qualified tax professional, CPA, or accountant.</strong>
-                        </p>
-                    </div>
-                </details>
-            </div>
-
-            <!-- Q6 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>6. How often are tax rates updated?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            Tax rates in South Africa change <strong>annually</strong>. Here's the timeline:
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 ml-4 mb-3">
-                            <li><strong>February/March:</strong> Government announces new rates for the tax year starting April 1st</li>
-                            <li><strong>April:</strong> New rates take effect for the 2024/25 tax year (or whatever the current year is)</li>
-                            <li><strong>Quarterly:</strong> Some rates change mid-year (fuel levies, for example)</li>
-                        </ul>
-                        <p class="mb-3">
-                            <strong>Our process:</strong> We update BleedRate rates as soon as official changes are published. We always show the "Last Updated" date on the calculator.
-                        </p>
-                        <p class="text-sm text-gray-400">
-                            Check the footer or settings to see the date rates were last refreshed. If it looks outdated, let us know!
-                        </p>
-                    </div>
-                </details>
-            </div>
-
-            <!-- Q7 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>7. Why don't you include deductions or exemptions?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            BleedRate provides <strong>baseline estimates for a standard taxpayer</strong>. Deductions and exemptions vary widely by individual:
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 ml-4 mb-3">
-                            <li>Medical expenses (rebates based on premiums paid)</li>
-                            <li>Charitable donations (subject to limits)</li>
-                            <li>Mortgage interest (varies by property)</li>
-                            <li>Business expenses (only if self-employed)</li>
-                            <li>Age-based rebates (60+, 65+)</li>
-                        </ul>
-                        <p class="mb-3">
-                            To adjust your estimate, use the <strong>Retirement Contributions field</strong>, which reduces your taxable income. But for a complete estimate that includes ALL your deductions, you'll need to work with a tax professional.
-                        </p>
-                    </div>
-                </details>
-            </div>
-
-            <!-- Q8 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>8. Can I use BleedRate for previous tax years?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            BleedRate is <strong>designed for the current tax year only.</strong>
-                        </p>
-                        <p class="mb-3">
-                            Tax rates change every year, so a 2026 calculator won't be accurate for 2025 or 2024. If you need to calculate liability for a previous year:
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 ml-4">
-                            <li>Work with a tax professional who has historical rate tables</li>
-                            <li>Contact SARS directly for official calculations</li>
-                            <li>Request historical rates from the Treasury</li>
-                        </ul>
-                        <p class="text-sm text-gray-400 mt-3">
-                            We may add a year-selector feature in the future, but it's not a priority right now.
-                        </p>
-                    </div>
-                </details>
-            </div>
-
-            <!-- Q9 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>9. Is BleedRate an official SARS tool?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            <strong class="text-red-300">No.</strong> BleedRate is an independent, third-party educational tool.
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 ml-4 mb-3">
-                            <li><strong>Created by:</strong> An independent developer</li>
-                            <li><strong>Official endorsement:</strong> None. BleedRate is NOT endorsed or maintained by SARS</li>
-                            <li><strong>Data source:</strong> We use official SARS tax rates and regulations, but the calculator is built independently</li>
-                        </ul>
-                        <p class="mb-3">
-                            For official tax calculations, filing, or disputes with SARS, visit <a href="https://www.sars.gov.za" target="_blank" class="text-blue-400 hover:text-blue-300 underline">www.sars.gov.za</a> or contact SARS directly.
-                        </p>
-                    </div>
-                </details>
-            </div>
-
-            <!-- Q10 -->
-            <div class="bg-gray-900 rounded border-2 border-red-600 overflow-hidden">
-                <details class="group cursor-pointer">
-                    <summary class="flex items-center justify-between p-4 text-lg font-bold text-red-200 hover:bg-gray-800 transition-colors">
-                        <span>10. How do I reduce my tax burden?</span>
-                        <span class="text-red-300 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="px-4 py-4 bg-gray-950 border-t border-red-600 text-gray-100">
-                        <p class="mb-3">
-                            <strong>BleedRate shows you where your money flows. That insight is the first step.</strong> Here are some strategies to explore:
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 ml-4 mb-3">
-                            <li><strong>Maximize retirement savings:</strong> Contributions reduce taxable income (tax-free growth)</li>
-                            <li><strong>Fuel-efficient vehicles:</strong> Lower fuel consumption = lower fuel levies</li>
-                            <li><strong>Buy locally-assembled cars:</strong> No 25% import duty (vs. imported vehicles)</li>
-                            <li><strong>Claim all eligible deductions:</strong> Medical expenses, donations, business expenses</li>
-                            <li><strong>Optimize investment structure:</strong> Tax-free savings accounts, ETFs, etc.</li>
-                            <li><strong>Adjust consumption:</strong> High-tax items (alcohol, tobacco) have high levies</li>
-                            <li><strong>Strategic giving:</strong> Donations qualify for tax deductions</li>
-                        </ul>
-                        <p class="text-yellow-300 bg-yellow-900 bg-opacity-30 border-l-4 border-yellow-500 p-3 rounded">
-                            <strong>But remember:</strong> Tax planning is complex and highly personal. Don't guess—work with a qualified tax professional or financial advisor who knows your complete situation. They can create a real strategy that actually works for YOU.
-                        </p>
-                    </div>
-                </details>
-            </div>
         </div>
 
         <hr class="my-12 border-red-900">
 
-        <!-- Still Have Questions? -->
+        <!-- CTA -->
         <div class="bg-gradient-to-r from-red-900 to-gray-900 p-8 rounded border-2 border-red-600 text-center">
             <h3 class="text-2xl font-bold text-red-200 mb-4">Still Have Questions?</h3>
-            <p class="text-gray-100 mb-6">We'd love to hear from you. Reach out:</p>
-            <div class="space-y-3">
-                <a href="mailto:contact@bleedrate.example.com" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition-colors">Email Us</a>
-                <p class="text-sm text-gray-400 mt-2">Or visit our <a href="/about" class="text-blue-400 hover:text-blue-300 underline">About page</a> for more context</p>
-            </div>
+            <p class="text-gray-300 mb-6">We'd love to hear from you.</p>
+            <a href="/contact" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition-colors mr-4">Contact Us</a>
+            <a href="/" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded transition-colors">Calculate My Tax →</a>
         </div>
 
-        <!-- Footer links -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center text-sm mt-8">
+        <div class="flex flex-wrap gap-4 justify-center text-sm mt-8">
             <a href="/" class="text-blue-400 hover:text-blue-300 underline">Home</a>
             <a href="/about" class="text-blue-400 hover:text-blue-300 underline">About</a>
+            <a href="/blog" class="text-blue-400 hover:text-blue-300 underline">Tax Guides</a>
             <a href="/privacy" class="text-blue-400 hover:text-blue-300 underline">Privacy Policy</a>
             <a href="/terms" class="text-blue-400 hover:text-blue-300 underline">Terms of Service</a>
+            <a href="/contact" class="text-blue-400 hover:text-blue-300 underline">Contact</a>
         </div>
     </div>
 </div>

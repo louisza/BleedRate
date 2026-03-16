@@ -112,3 +112,36 @@ def test_blog_list_contains_all_posts(client):
     assert "Fuel Levy" in response.text or "fuel" in response.text.lower()
     assert "VAT" in response.text
     assert "Provisional" in response.text or "freelan" in response.text.lower()
+
+
+def test_contact_page(client):
+    """GET /contact returns 200 with contact info"""
+    response = client.get("/contact")
+    assert response.status_code == 200
+    assert "contact@bleedrate.co.za" in response.text
+    assert "github.com/louisza/BleedRate/issues" in response.text
+
+
+def test_faq_has_15_questions(client):
+    """FAQ page should contain all 15 SA tax questions"""
+    response = client.get("/faq")
+    assert response.status_code == 200
+    assert "PAYE" in response.text
+    assert "fuel levy" in response.text.lower() or "Fuel Levy" in response.text
+    assert "UIF" in response.text
+    assert "VAT" in response.text
+    assert "provisional" in response.text.lower()
+    assert "FAQPage" in response.text  # JSON-LD schema
+
+
+def test_sitemap_no_railway_domain(client):
+    """Sitemap should not contain railway.app domain"""
+    response = client.get("/sitemap.xml")
+    assert "railway.app" not in response.text
+
+
+def test_homepage_has_intro(client):
+    """Homepage should contain editorial intro text"""
+    response = client.get("/")
+    assert "30%" in response.text or "30%–50%" in response.text or "30% and 50%" in response.text
+    assert "BleedRate" in response.text

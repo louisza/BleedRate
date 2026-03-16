@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Contact BleedRate — South African Tax Calculator{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-12 max-w-3xl">
+    <div class="bg-gray-800 rounded-lg border-2 border-red-900 p-8 text-gray-100">
+        <h1 class="text-4xl font-bold text-red-100 mb-4">Contact BleedRate</h1>
+
+        <p class="text-gray-300 mb-8 leading-relaxed">
+            BleedRate is an independent project built to help South Africans understand their true tax footprint. 
+            We welcome questions about the calculator, corrections to tax rates, suggestions for new features, 
+            and feedback on content accuracy. Whether you've spotted a bug, noticed an outdated rate, or simply 
+            want to tell us the number made you angry, we'd like to hear from you.
+        </p>
+
+        <div class="space-y-6">
+
+            <!-- Email -->
+            <div class="bg-gray-900 rounded-lg border border-red-800 p-6">
+                <h2 class="text-xl font-bold text-red-200 mb-2">📧 Email</h2>
+                <p class="text-gray-300 mb-2">The best way to reach us:</p>
+                <a href="mailto:contact@bleedrate.co.za" class="text-blue-400 hover:text-blue-300 underline text-lg font-semibold">contact@bleedrate.co.za</a>
+                <p class="text-sm text-gray-500 mt-2">We aim to respond within a few business days. During busy periods it may take up to a week.</p>
+            </div>
+
+            <!-- GitHub Issues -->
+            <div class="bg-gray-900 rounded-lg border border-red-800 p-6">
+                <h2 class="text-xl font-bold text-red-200 mb-2">🐛 Bug Reports &amp; Feature Requests</h2>
+                <p class="text-gray-300 mb-3">
+                    For technical issues, incorrect calculations, or feature suggestions, please open a GitHub issue. 
+                    This is the fastest way to get bugs fixed, as issues are tracked publicly and prioritised in our development backlog.
+                </p>
+                <a href="https://github.com/louisza/BleedRate/issues" 
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-5 rounded transition-colors">
+                    Open a GitHub Issue →
+                </a>
+            </div>
+
+            <!-- Response time note -->
+            <div class="bg-yellow-900 bg-opacity-30 border-l-4 border-yellow-500 p-4 rounded">
+                <p class="text-yellow-200 text-sm">
+                    <strong>Please note:</strong> BleedRate is maintained by a solo developer in their spare time. 
+                    We read every message and do our best to respond, but response times are typically a few days. 
+                    Thank you for your patience and for using BleedRate.
+                </p>
+            </div>
+
+        </div>
+
+        <hr class="my-8 border-red-900">
+
+        <div class="flex flex-wrap gap-4 justify-center text-sm">
+            <a href="/" class="text-blue-400 hover:text-blue-300 underline">Home</a>
+            <a href="/faq" class="text-blue-400 hover:text-blue-300 underline">FAQ</a>
+            <a href="/about" class="text-blue-400 hover:text-blue-300 underline">About</a>
+            <a href="/privacy" class="text-blue-400 hover:text-blue-300 underline">Privacy Policy</a>
+            <a href="/terms" class="text-blue-400 hover:text-blue-300 underline">Terms of Service</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -343,6 +343,12 @@ async def terms_page(request: Request):
     return templates.TemplateResponse("terms.html", {"request": request})
 
 
+@router.get("/contact", response_class=HTMLResponse)
+async def contact_page(request: Request):
+    """Contact page"""
+    return templates.TemplateResponse("contact.html", {"request": request})
+
+
 @router.get("/blog", response_class=HTMLResponse)
 async def blog_list(request: Request):
     """Blog post listing page"""
@@ -407,6 +413,12 @@ async def sitemap_xml(request: Request):
         <lastmod>2026-03-01</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://bleedrate.co.za/contact</loc>
+        <lastmod>2026-03-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://bleedrate.co.za/terms</loc>
