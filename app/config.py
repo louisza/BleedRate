@@ -27,7 +27,7 @@ class Settings:
     # Base URLs (environment-specific)
     BASE_URL: str = os.getenv(
         "BASE_URL",
-        "http://localhost:8000" if IS_DEVELOPMENT else "https://bleedrate.up.railway.app"
+        "http://localhost:8000" if IS_DEVELOPMENT else "https://bleedrate.co.za"
     )
     
     # Database (environment-specific)

@@ -30,4 +30,4 @@ User-agent: SemrushBot
 Crawl-delay: 10
 
 # Sitemap location
-Sitemap: https://bleedrate.example.com/sitemap.xml
+Sitemap: https://bleedrate.co.za/sitemap.xml
