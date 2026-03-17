@@ -126,12 +126,16 @@ def test_faq_has_15_questions(client):
     """FAQ page should contain all 15 SA tax questions"""
     response = client.get("/faq")
     assert response.status_code == 200
+    # Content sanity checks for key FAQ topics
     assert "PAYE" in response.text
     assert "fuel levy" in response.text.lower() or "Fuel Levy" in response.text
     assert "UIF" in response.text
     assert "VAT" in response.text
     assert "provisional" in response.text.lower()
-    assert "FAQPage" in response.text  # JSON-LD schema
+    assert "FAQPage" in response.text  # JSON-LD schema presence
+    # Ensure the FAQ actually exposes 15 questions in JSON-LD
+    question_count = response.text.count('"@type": "Question"')
+    assert question_count == 15
 
 
 def test_sitemap_no_railway_domain(client):
