@@ -7,10 +7,10 @@ BLOG_POSTS = [
     {
         "slug": "how-much-tax-do-south-africans-really-pay",
         "title": "How Much Tax Do South Africans Really Pay? Beyond PAYE",
-        "meta_description": "Most South Africans only see PAYE on their payslip, but your real tax footprint is 2-3x higher. Discover fuel levies, VAT, municipal charges and hidden taxes in this 2024/25 guide.",
+        "meta_description": "Most South Africans only see PAYE on their payslip, but your real tax footprint is 2-3x higher. Discover fuel levies, VAT, municipal charges and hidden taxes in this 2026/27 guide.",
         "published": "2026-03-01",
         "updated": "March 2026",
-        "tax_year": "2024/25",
+        "tax_year": "2026/27",
         "reading_time": "7 min",
         "content": """
 <p class="text-lg text-gray-300 mb-6">
@@ -30,15 +30,15 @@ BLOG_POSTS = [
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">1. PAYE — The Tax You Can See</h2>
 
 <p class="mb-4">
-  For the 2024/25 tax year, South Africa has seven income tax brackets ranging from 18% on the first 
-  R237,100 of taxable income to 45% on income above R1,817,000. For our R40,000/month earner (R480,000/year):
+  For the 2026/27 tax year, South Africa has seven income tax brackets ranging from 18% on the first 
+  R245,100 of taxable income to 45% on income above R1,878,600. For our R40,000/month earner (R480,000/year):
 </p>
 
 <ul class="list-disc list-inside ml-4 mb-6 space-y-2 text-gray-300">
   <li>Taxable income: ~R450,000 (after retirement contribution deduction)</li>
   <li>Marginal rate: 31%</li>
   <li>PAYE (before rebate): ~R101,000/year</li>
-  <li>Less primary rebate: R17,235</li>
+  <li>Less primary rebate: R17,820</li>
   <li>Less medical aid credits (2 members): R7,920</li>
   <li><strong class="text-white">Net PAYE: ~R75,845/year (R6,320/month)</strong></li>
 </ul>
@@ -67,7 +67,7 @@ BLOG_POSTS = [
   you save the 15% on those items.
 </p>
 
-<h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">3. Fuel Levies — R6.33 Per Litre of Petrol</h2>
+<h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">3. Fuel Levies — R6.54 Per Litre of Petrol</h2>
 
 <p class="mb-4">
   Every litre of petrol you pump includes government levies that have nothing to do with the 
@@ -75,11 +75,11 @@ BLOG_POSTS = [
 </p>
 
 <ul class="list-disc list-inside ml-4 mb-4 space-y-1 text-gray-300">
-  <li>General Fuel Levy: R4.03/L</li>
-  <li>Road Accident Fund (RAF) Levy: R2.18/L</li>
+  <li>General Fuel Levy: R4.10/L</li>
+  <li>Road Accident Fund (RAF) Levy: R2.25/L</li>
   <li>Carbon Tax component: R0.11/L</li>
   <li>Customs & Excise: R0.01/L</li>
-  <li><strong class="text-white">Total government take: ~R6.33/L</strong></li>
+  <li><strong class="text-white">Total government take: ~R6.54/L</strong></li>
 </ul>
 
 <p class="mb-4">
@@ -88,7 +88,7 @@ BLOG_POSTS = [
 </p>
 
 <p class="mb-4">
-  Diesel users pay slightly less: approximately R6.20/L in total levies, offering a small saving 
+  Diesel users pay slightly less: approximately R6.41/L in total levies, offering a small saving 
   for bakkie and 4x4 drivers.
 </p>
 
@@ -109,10 +109,10 @@ BLOG_POSTS = [
 </p>
 
 <ul class="list-disc list-inside ml-4 mb-4 space-y-1 text-gray-300">
-  <li><strong>Beer:</strong> R121.41/litre of absolute alcohol — a 330ml can at 5% ABV adds R2.00 to SARS</li>
-  <li><strong>Wine:</strong> R4.96/litre — a R120 bottle includes ~R5 in excise duty</li>
-  <li><strong>Spirits:</strong> R249.20/litre of absolute alcohol — a R400 bottle of whiskey (43% ABV) includes ~R107 in duty</li>
-  <li><strong>Cigarettes:</strong> R18.22 per 20-pack OR 30% of retail price (whichever is higher)</li>
+  <li><strong>Beer:</strong> R149.98/litre of absolute alcohol — a 330ml can at 5% ABV adds R2.50 to SARS</li>
+  <li><strong>Wine:</strong> R6.15/litre — a R120 bottle includes ~R6 in excise duty</li>
+  <li><strong>Spirits:</strong> R302.84/litre of absolute alcohol — a R400 bottle of whiskey (43% ABV) includes ~R131 in duty</li>
+  <li><strong>Cigarettes:</strong> R22.81 per 20-pack OR 30% of retail price (whichever is higher)</li>
 </ul>
 
 <p class="mb-4">
@@ -249,7 +249,7 @@ BLOG_POSTS = [
         "meta_description": "The 2025/26 SARS tax brackets explained — marginal vs effective rates, rebates, medical aid credits. Find out what you actually take home on any salary.",
         "published": "2026-03-02",
         "updated": "March 2026",
-        "tax_year": "2024/25",
+        "tax_year": "2026/27",
         "reading_time": "6 min",
         "content": """
 <p class="text-lg text-gray-300 mb-6">
@@ -259,7 +259,7 @@ BLOG_POSTS = [
   how South Africa's progressive tax system actually works.
 </p>
 
-<h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">The Seven SARS Tax Brackets (2024/25)</h2>
+<h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">The Seven SARS Tax Brackets (2026/27)</h2>
 
 <p class="mb-4">
   For the tax year ending 28 February 2025, SARS applies the following brackets to taxable income 
@@ -277,7 +277,7 @@ BLOG_POSTS = [
     </thead>
     <tbody class="text-gray-300">
       <tr class="border-b border-gray-800">
-        <td class="py-2 pr-6">R1 – R237,100</td>
+        <td class="py-2 pr-6">R1 – R245,100</td>
         <td class="py-2 text-right">18%</td>
         <td class="py-2 text-right">R42,678 max</td>
       </tr>
@@ -302,7 +302,7 @@ BLOG_POSTS = [
         <td class="py-2 text-right">R72,111 max</td>
       </tr>
       <tr class="border-b border-gray-800">
-        <td class="py-2 pr-6">R857,901 – R1,817,000</td>
+        <td class="py-2 pr-6">R887,001 – R1,878,600</td>
         <td class="py-2 text-right">41%</td>
         <td class="py-2 text-right">R393,249 max</td>
       </tr>
@@ -337,10 +337,10 @@ BLOG_POSTS = [
 </p>
 
 <ul class="list-disc list-inside ml-4 mb-6 space-y-1 text-gray-300">
-  <li>First R237,100 taxed at 18% = R42,678</li>
+  <li>First R245,100 taxed at 18% = R44,118</li>
   <li>Remaining R122,900 taxed at 26% = R31,954</li>
   <li>Total tax before rebate: R74,632</li>
-  <li>Less primary rebate: <strong>–R17,235</strong></li>
+  <li>Less primary rebate: <strong>–R17,820</strong></li>
   <li><strong class="text-white">Tax payable: R57,397/year (R4,783/month)</strong></li>
   <li><strong class="text-red-300">Effective rate: 15.9%</strong> — NOT the 26% marginal rate</li>
 </ul>
@@ -349,24 +349,24 @@ BLOG_POSTS = [
 
 <p class="mb-4">
   Rebates are subtracted directly from your tax bill (not your income). 
-  SARS provides three age-based rebates for 2024/25:
+  SARS provides three age-based rebates for 2026/27:
 </p>
 
 <ul class="list-disc list-inside ml-4 mb-6 space-y-2 text-gray-300">
-  <li><strong class="text-white">Primary Rebate:</strong> R17,235 — for all taxpayers under 65</li>
-  <li><strong class="text-white">Secondary Rebate:</strong> R9,444 (additional) — for taxpayers aged 65 and over</li>
-  <li><strong class="text-white">Tertiary Rebate:</strong> R3,145 (additional) — for taxpayers aged 75 and over</li>
+  <li><strong class="text-white">Primary Rebate:</strong> R17,820 — for all taxpayers under 65</li>
+  <li><strong class="text-white">Secondary Rebate:</strong> R9,765 (additional) — for taxpayers aged 65 and over</li>
+  <li><strong class="text-white">Tertiary Rebate:</strong> R3,249 (additional) — for taxpayers aged 75 and over</li>
 </ul>
 
 <p class="mb-4">
   The <strong class="text-white">tax threshold</strong> is the income at which the rebate offsets 
-  all tax liability. For 2024/25:
+  all tax liability. For 2026/27:
 </p>
 
 <ul class="list-disc list-inside ml-4 mb-6 space-y-1 text-gray-300">
-  <li>Under 65: <strong class="text-white">R95,750</strong> — no PAYE below this income</li>
-  <li>Age 65–74: R148,217</li>
-  <li>Age 75+: R165,689</li>
+  <li>Under 65: <strong class="text-white">R99,000</strong> — no PAYE below this income</li>
+  <li>Age 65–74: R153,250</li>
+  <li>Age 75+: R171,300</li>
 </ul>
 
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">Medical Aid Credits</h2>
@@ -376,9 +376,9 @@ BLOG_POSTS = [
 </p>
 
 <ul class="list-disc list-inside ml-4 mb-4 space-y-1 text-gray-300">
-  <li>Main member: <strong class="text-white">R364/month</strong></li>
-  <li>First dependant: R364/month</li>
-  <li>Each additional dependant: R246/month</li>
+  <li>Main member: <strong class="text-white">R376/month</strong></li>
+  <li>First dependant: R376/month</li>
+  <li>Each additional dependant: R254/month</li>
 </ul>
 
 <p class="mb-4">
@@ -439,17 +439,17 @@ BLOG_POSTS = [
     {
         "slug": "fuel-levy-south-africa-2025",
         "title": "Fuel Levy 2025: How Much Does Government Take Per Litre of Petrol?",
-        "meta_description": "R6.33 per litre of petrol goes to government. Here's the full breakdown of the South African fuel levy, RAF levy, and carbon tax — and how much you pay per year.",
+        "meta_description": "R6.54 per litre of petrol goes to government. Here's the full breakdown of the South African fuel levy, RAF levy, and carbon tax — and how much you pay per year.",
         "published": "2026-03-03",
         "updated": "March 2026",
-        "tax_year": "2024/25",
+        "tax_year": "2026/27",
         "reading_time": "5 min",
         "content": """
 <p class="text-lg text-gray-300 mb-6">
   When you pull up to a petrol pump in South Africa, you see a single price per litre. 
   But buried in that number are multiple government levies that make up a substantial 
   portion of what you pay. For 2025, the total government take on a litre of 95-octane 
-  inland petrol is approximately <strong class="text-red-300">R6.33 per litre</strong>.
+  inland petrol is approximately <strong class="text-red-300">R6.54 per litre</strong>.
 </p>
 
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">Breaking Down the Government Component of Petrol</h2>
@@ -466,12 +466,12 @@ BLOG_POSTS = [
     <tbody class="text-gray-300">
       <tr class="border-b border-gray-800">
         <td class="py-2 pr-6">General Fuel Levy</td>
-        <td class="py-2 text-right">R4.03</td>
+        <td class="py-2 text-right">R4.10</td>
         <td class="py-2 pl-4">National Treasury / fiscus</td>
       </tr>
       <tr class="border-b border-gray-800">
         <td class="py-2 pr-6">Road Accident Fund (RAF) Levy</td>
-        <td class="py-2 text-right">R2.18</td>
+        <td class="py-2 text-right">R2.25</td>
         <td class="py-2 pl-4">RAF compensation claims</td>
       </tr>
       <tr class="border-b border-gray-800">
@@ -486,7 +486,7 @@ BLOG_POSTS = [
       </tr>
       <tr class="font-bold text-red-200">
         <td class="py-3 pr-6">Total Government Levies</td>
-        <td class="py-3 text-right text-red-300">R6.33</td>
+        <td class="py-3 text-right text-red-300">R6.54</td>
         <td class="py-3"></td>
       </tr>
     </tbody>
@@ -501,21 +501,21 @@ BLOG_POSTS = [
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">The General Fuel Levy: Government's Petrol Tax</h2>
 
 <p class="mb-4">
-  At R4.03/L, the General Fuel Levy is the largest levy component. Unlike the RAF levy (which 
+  At R4.10/L, the General Fuel Levy is the largest levy component. Unlike the RAF levy (which 
   funds a specific scheme), the General Fuel Levy flows directly to National Treasury as 
   general government revenue. It was last increased by 10 cents/litre in the 2024 Budget.
 </p>
 
 <p class="mb-4">
   South Africa's General Fuel Levy is one of the highest in sub-Saharan Africa. 
-  It applies equally to petrol and diesel (though diesel has a slightly lower rate: ~R3.85/L 
+  It applies equally to petrol and diesel (though diesel has a slightly lower rate: ~R3.93/L 
   for the general levy component).
 </p>
 
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">The Road Accident Fund Levy: Insurance You Pay Per Litre</h2>
 
 <p class="mb-4">
-  The RAF levy of <strong class="text-red-300">R2.18/L</strong> funds the Road Accident Fund — 
+  The RAF levy of <strong class="text-red-300">R2.25/L</strong> funds the Road Accident Fund — 
   a state scheme that compensates victims of road accidents for loss of earnings, medical 
   expenses, and general damages.
 </p>
@@ -538,7 +538,7 @@ BLOG_POSTS = [
 
 <ul class="list-disc list-inside ml-4 mb-4 space-y-1 text-gray-300">
   <li>Annual fuel consumption: 1,200 litres</li>
-  <li>Total fuel levies: 1,200 × R6.33 = <strong class="text-red-300">R7,596/year (R633/month)</strong></li>
+  <li>Total fuel levies: 1,200 × R6.54 = <strong class="text-red-300">R7,848/year (R654/month)</strong></li>
   <li>Of which to National Treasury (General Levy): R4,836/year</li>
   <li>Of which to the RAF: R2,616/year</li>
 </ul>
@@ -556,8 +556,8 @@ BLOG_POSTS = [
 
 <p class="mb-4">
   Diesel users (bakkies, trucks, generators) pay slightly less in levies: approximately 
-  <strong class="text-white">R6.20/L</strong> total, with the general fuel levy at ~R3.85/L 
-  and RAF levy unchanged at R2.18/L. The small differential reflects a historical concession 
+  <strong class="text-white">R6.41/L</strong> total, with the general fuel levy at ~R3.93/L 
+  and RAF levy unchanged at R2.25/L. The small differential reflects a historical concession 
   to commercial transport and agriculture.
 </p>
 
@@ -589,7 +589,7 @@ BLOG_POSTS = [
         "meta_description": "South Africa charges 15% VAT on most goods and services, but some essentials are zero-rated. Full list of zero-rated items, how the math works, and how to budget for VAT.",
         "published": "2026-03-04",
         "updated": "March 2026",
-        "tax_year": "2024/25",
+        "tax_year": "2026/27",
         "reading_time": "5 min",
         "content": """
 <p class="text-lg text-gray-300 mb-6">
@@ -785,7 +785,7 @@ BLOG_POSTS = [
         "meta_description": "Are you a freelancer, consultant, or have a side hustle in South Africa? Learn how provisional tax works, when to pay, and how to avoid SARS penalties.",
         "published": "2026-03-05",
         "updated": "March 2026",
-        "tax_year": "2024/25",
+        "tax_year": "2026/27",
         "reading_time": "6 min",
         "content": """
 <p class="text-lg text-gray-300 mb-6">
@@ -886,8 +886,8 @@ BLOG_POSTS = [
   <strong>Step 2: Apply the SARS brackets to get your tax liability</strong>
 </p>
 <p class="mb-4 text-gray-300">
-  Use the 2024/25 brackets (18% to 45%) on your estimated taxable income. 
-  Subtract the primary rebate (R17,235), secondary rebate if applicable, and medical tax credits.
+  Use the 2026/27 brackets (18% to 45%) on your estimated taxable income. 
+  Subtract the primary rebate (R17,820), secondary rebate if applicable, and medical tax credits.
 </p>
 
 <p class="mb-4">
@@ -913,7 +913,7 @@ BLOG_POSTS = [
   <li>RA contribution: R36,000/year</li>
   <li>Total taxable income: R240,000 + R120,000 – R36,000 = <strong class="text-white">R324,000</strong></li>
   <li>Tax on R324,000 (from brackets): ~R63,100</li>
-  <li>Less primary rebate: –R17,235</li>
+  <li>Less primary rebate: –R17,820</li>
   <li>Total tax liability: <strong class="text-white">R45,865</strong></li>
   <li>PAYE already deducted: R21,000</li>
   <li>Provisional tax owed: <strong class="text-red-300">R24,865</strong></li>
@@ -931,7 +931,7 @@ BLOG_POSTS = [
 
 <p class="mb-4">
   Additionally, interest at the prescribed rate applies to any shortfall. 
-  For 2024/25, the SARS interest rate on outstanding debt is 11.25% per annum.
+  For 2026/27, the SARS interest rate on outstanding debt is 11.25% per annum.
 </p>
 
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">Practical Tips for Freelancers</h2>

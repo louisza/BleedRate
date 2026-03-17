@@ -22,8 +22,8 @@ def calculator(rates):
 def test_beer_excise_calculation(calculator):
     """Test beer excise calculation - LAA-based
     
-    Official rate: R121.41 per litre of absolute alcohol (LAA)
-    Formula: Litres × (ABV% / 100) × R121.41 × 12 months
+    Official rate: R149.98 per litre of absolute alcohol (LAA) [2026/27]
+    Formula: Litres × (ABV% / 100) × R149.98 × 12 months
     """
     profile = ConsumptionProfile(
         beer_litres_month=20.0,  # 20 litres per month
@@ -33,19 +33,19 @@ def test_beer_excise_calculation(calculator):
     result = calculator.calculate(profile)
     
     # 20L × 5% = 1 LAA per month
-    # 1 LAA × R121.41 = R121.41 per month
-    # × 12 = R1,456.92 per year
+    # 1 LAA × R149.98 = R149.98 per month
+    # × 12 = R1,799.76 per year
     assert "Beer Excise" in result
     laa_per_month = 20 * (5.0 / 100)
-    expected_annual = laa_per_month * 121.41 * 12
+    expected_annual = laa_per_month * 149.98 * 12
     assert result["Beer Excise"] == pytest.approx(expected_annual, rel=0.01)
 
 
 def test_wine_excise_calculation(calculator):
     """Test wine excise calculation - Volumetric
     
-    Official rate: R4.96 per litre of wine (NOT LAA-based)
-    Formula: Litres × R4.96 × 12 months
+    Official rate: R6.15 per litre of wine (NOT LAA-based) [2026/27]
+    Formula: Litres × R6.15 × 12 months
     """
     profile = ConsumptionProfile(
         wine_litres_month=6.0,  # 6 litres per month (~8 bottles)
@@ -55,9 +55,9 @@ def test_wine_excise_calculation(calculator):
     result = calculator.calculate(profile)
     
     assert "Wine Excise" in result
-    # 6L × R4.96 = R29.76 per month
-    # × 12 = R357.12 per year
-    expected_annual = 6 * 4.96 * 12
+    # 6L × R6.15 = R36.90 per month
+    # × 12 = R442.80 per year
+    expected_annual = 6 * 6.15 * 12
     assert result["Wine Excise"] == pytest.approx(expected_annual, rel=0.01)
 
 
@@ -71,7 +71,7 @@ def test_spirits_excise_calculation(calculator):
     result = calculator.calculate(profile)
     
     assert "Spirits Excise" in result
-    expected_annual = 1 * (43.0 / 100) * 249.20 * 12
+    expected_annual = 1 * (43.0 / 100) * 302.84 * 12
     assert result["Spirits Excise"] == pytest.approx(expected_annual, rel=0.01)
 
 
@@ -112,7 +112,7 @@ def test_extreme_abv_edge_cases(calculator):
     )
     result_zero = calculator.calculate(profile_zero)
     # 0% ABV = 0 LAA = R0 excise (LAA-based calculation)
-    expected_beer = 20.0 * (0.0 / 100) * 121.41 * 12
+    expected_beer = 20.0 * (0.0 / 100) * 149.98 * 12
     assert result_zero["Beer Excise"] == pytest.approx(expected_beer, rel=0.01)
     
     # 100% ABV (pure alcohol - theoretical) - spirits
@@ -121,5 +121,5 @@ def test_extreme_abv_edge_cases(calculator):
         spirits_avg_abv=100.0
     )
     result_max = calculator.calculate(profile_max)
-    expected = 1.0 * 249.20 * 12  # Full LAA rate
+    expected = 1.0 * 302.84 * 12  # Full LAA rate
     assert result_max["Spirits Excise"] == pytest.approx(expected, rel=0.01)
