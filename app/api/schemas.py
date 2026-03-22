@@ -80,7 +80,7 @@ class CalcResponse(BaseModel):
 class RatesResponse(BaseModel):
     """Tax rates response"""
     rates: dict
-    version: str = "2024/25"
+    version: str = "2026/27"
 
 
 class ScenarioSaveRequest(BaseModel):
