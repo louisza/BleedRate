@@ -67,7 +67,7 @@ BLOG_POSTS = [
   you save the 15% on those items.
 </p>
 
-<h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">3. Fuel Levies — R6.54 Per Litre of Petrol</h2>
+<h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">3. Fuel Levies — R6.35 Per Litre of Petrol (Budget 2026)</h2>
 
 <p class="mb-4">
   Every litre of petrol you pump includes government levies that have nothing to do with the 
@@ -84,12 +84,12 @@ BLOG_POSTS = [
 
 <p class="mb-4">
   For someone driving 1,500 km/month in a typical sedan (~12.5 L/100km), that's 187.5 litres 
-  per month, meaning <strong class="text-red-300">R1,187/month (R14,244/year) in fuel levies alone</strong>.
+  per month, meaning <strong class="text-red-300">R1,190/month (R14,276/year) in fuel levies alone</strong> (at R6.35/L statutory).
 </p>
 
 <p class="mb-4">
-  Diesel users pay slightly less: approximately R6.41/L in total levies, offering a small saving 
-  for bakkie and 4x4 drivers.
+  Diesel users pay slightly less: approximately R6.18/L in total levies (statutory Budget 2026), offering a small saving 
+  for bakkie and 4x4 drivers. Note: temporary R3.00/L GFL relief applies 1 Apr – 5 May 2026 only.
 </p>
 
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">4. The Electricity Environmental Levy</h2>
@@ -438,18 +438,18 @@ BLOG_POSTS = [
     },
     {
         "slug": "fuel-levy-south-africa-2025",
-        "title": "Fuel Levy 2025: How Much Does Government Take Per Litre of Petrol?",
-        "meta_description": "R6.54 per litre of petrol goes to government. Here's the full breakdown of the South African fuel levy, RAF levy, and carbon tax — and how much you pay per year.",
+        "title": "Fuel Levy 2026: How Much Does Government Take Per Litre of Petrol?",
+        "meta_description": "R6.35 per litre of petrol goes to government (statutory Budget 2026 rates). Here's the full breakdown of the South African fuel levy, RAF levy, and carbon tax — and how much you pay per year.",
         "published": "2026-03-03",
-        "updated": "March 2026",
+        "updated": "April 2026",
         "tax_year": "2026/27",
         "reading_time": "5 min",
         "content": """
 <p class="text-lg text-gray-300 mb-6">
   When you pull up to a petrol pump in South Africa, you see a single price per litre. 
   But buried in that number are multiple government levies that make up a substantial 
-  portion of what you pay. For 2025, the total government take on a litre of 95-octane 
-  inland petrol is approximately <strong class="text-red-300">R6.54 per litre</strong>.
+  portion of what you pay. For 2026, the total government take on a litre of 95-octane 
+  inland petrol is approximately <strong class="text-red-300">R6.35 per litre</strong> (statutory Budget 2026 rates).
 </p>
 
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">Breaking Down the Government Component of Petrol</h2>
@@ -476,8 +476,8 @@ BLOG_POSTS = [
       </tr>
       <tr class="border-b border-gray-800">
         <td class="py-2 pr-6">Carbon Tax component</td>
-        <td class="py-2 text-right">R0.11</td>
-        <td class="py-2 pl-4">Climate change / National Treasury</td>
+        <td class="py-2 text-right">R0.19</td>
+        <td class="py-2 pl-4">Climate change / National Treasury (component of GFL)</td>
       </tr>
       <tr class="border-b border-gray-800">
         <td class="py-2 pr-6">Customs &amp; Excise</td>
@@ -486,7 +486,7 @@ BLOG_POSTS = [
       </tr>
       <tr class="font-bold text-red-200">
         <td class="py-3 pr-6">Total Government Levies</td>
-        <td class="py-3 text-right text-red-300">R6.54</td>
+        <td class="py-3 text-right text-red-300">R6.35</td>
         <td class="py-3"></td>
       </tr>
     </tbody>
@@ -494,17 +494,27 @@ BLOG_POSTS = [
 </div>
 
 <p class="mb-4 text-gray-400 text-sm">
-  * Figures are approximate for 2025. The fuel price is regulated by the Department of Mineral 
+  * Figures are statutory Budget 2026 rates (permanent from 6 May 2026). The fuel price is regulated by the Department of Mineral 
   Resources and Energy (DMRE) and changes monthly. Levies are fixed by Parliament and change annually.
 </p>
 
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">The General Fuel Levy: Government's Petrol Tax</h2>
 
 <p class="mb-4">
-  At R4.10/L, the General Fuel Levy is the largest levy component. Unlike the RAF levy (which 
-  funds a specific scheme), the General Fuel Levy flows directly to National Treasury as 
-  general government revenue. It was last increased by 10 cents/litre in the 2024 Budget.
+  At R4.10/L, the General Fuel Levy is the largest levy component (increased from R4.03 in Budget 2026). 
+  Unlike the RAF levy (which funds a specific scheme), the General Fuel Levy flows directly to National Treasury as 
+  general government revenue.
 </p>
+
+<div class="bg-yellow-950 border border-yellow-700 rounded p-4 mb-4">
+  <p class="text-yellow-200 font-semibold mb-1">&#9888;&#65039; Temporary April 2026 Relief</p>
+  <p class="text-yellow-100 text-sm">
+    Due to the global oil price spike, government implemented a temporary R3.00/L GFL reduction 
+    from <strong>1 April to 5 May 2026</strong>. During this period, the effective petrol GFL is R1.10/L 
+    and diesel GFL is R0.93/L — bringing the total government levy to R3.35/L (petrol) and R3.18/L (diesel). 
+    The statutory Budget 2026 rates (R4.10/L petrol, R3.93/L diesel) resume from 6 May 2026.
+  </p>
+</div>
 
 <p class="mb-4">
   South Africa's General Fuel Levy is one of the highest in sub-Saharan Africa. 
@@ -538,9 +548,9 @@ BLOG_POSTS = [
 
 <ul class="list-disc list-inside ml-4 mb-4 space-y-1 text-gray-300">
   <li>Annual fuel consumption: 1,200 litres</li>
-  <li>Total fuel levies: 1,200 × R6.54 = <strong class="text-red-300">R7,848/year (R654/month)</strong></li>
-  <li>Of which to National Treasury (General Levy): R4,836/year</li>
-  <li>Of which to the RAF: R2,616/year</li>
+  <li>Total fuel levies: 1,200 × R6.35 = <strong class="text-red-300">R7,620/year (R635/month)</strong></li>
+  <li>Of which to National Treasury (General Levy): R4,920/year</li>
+  <li>Of which to the RAF: R2,700/year</li>
 </ul>
 
 <p class="mb-4">
@@ -549,15 +559,15 @@ BLOG_POSTS = [
 
 <ul class="list-disc list-inside ml-4 mb-6 space-y-1 text-gray-300">
   <li>Annual fuel consumption: 1,800 litres</li>
-  <li>Total fuel levies: <strong class="text-red-300">R11,394/year (R949.50/month)</strong></li>
+  <li>Total fuel levies: 1,800 × R6.35 = <strong class="text-red-300">R11,430/year (R952.50/month)</strong></li>
 </ul>
 
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">Diesel vs. Petrol Levies</h2>
 
 <p class="mb-4">
   Diesel users (bakkies, trucks, generators) pay slightly less in levies: approximately 
-  <strong class="text-white">R6.41/L</strong> total, with the general fuel levy at ~R3.93/L 
-  and RAF levy unchanged at R2.25/L. The small differential reflects a historical concession 
+  <strong class="text-white">R6.18/L</strong> total (statutory Budget 2026), with the general fuel levy at R3.93/L 
+  and RAF levy at R2.25/L. The small differential reflects a historical concession 
   to commercial transport and agriculture.
 </p>
 
@@ -569,10 +579,9 @@ BLOG_POSTS = [
 <h2 class="text-2xl font-bold text-red-200 mt-8 mb-4">The Carbon Tax Component</h2>
 
 <p class="mb-4">
-  South Africa introduced a Carbon Tax in 2019. An R0.11/L component of the petrol levy 
-  represents the carbon cost of combusting liquid fuel — approximately R0.09/L for petrol 
-  and higher for diesel. This component has increased incrementally each year in line with 
-  the Carbon Tax Act's trajectory.
+  South Africa introduced a Carbon Tax in 2019. The carbon fuel levy is now R0.19/L for petrol 
+  and R0.23/L for diesel (Budget 2026), embedded within the General Fuel Levy. This component has 
+  increased incrementally each year in line with the Carbon Tax Act's trajectory.
 </p>
 
 <p class="mb-6">
@@ -588,7 +597,7 @@ BLOG_POSTS = [
         "title": "VAT in South Africa: What's Taxed at 15% and What's Zero-Rated?",
         "meta_description": "South Africa charges 15% VAT on most goods and services, but some essentials are zero-rated. Full list of zero-rated items, how the math works, and how to budget for VAT.",
         "published": "2026-03-04",
-        "updated": "March 2026",
+        "updated": "April 2026",
         "tax_year": "2026/27",
         "reading_time": "5 min",
         "content": """
