@@ -55,12 +55,16 @@ uif_monthly_cap: 177.12    # Maximum monthly contribution
 # Value Added Tax
 vat_rate: 0.15             # 15%
 
-# Fuel Levies (Rand per litre, effective 1 April 2026)
-fuel_gfl_petrol: 4.10      # General Fuel Levy - Petrol
-fuel_gfl_diesel: 3.93      # General Fuel Levy - Diesel
+# Fuel Levies (Rand per litre, statutory Budget 2026 rates, permanent from 6 May 2026)
+# NOTE: Temporary R3.00/L GFL relief active 1 Apr - 5 May 2026 (oil price spike)
+#   During relief: petrol GFL=R1.10/L (total govt=R3.35/L), diesel GFL=R0.93/L (total govt=R3.18/L)
+fuel_gfl_petrol: 4.10      # General Fuel Levy - Petrol (includes carbon component)
+fuel_gfl_diesel: 3.93      # General Fuel Levy - Diesel (includes carbon component)
 fuel_raf: 2.25             # Road Accident Fund levy
-fuel_carbon_petrol: 0.19   # Carbon tax - Petrol
-fuel_carbon_diesel: 0.23   # Carbon tax - Diesel
+fuel_carbon_petrol: 0.19   # Carbon fuel levy - Petrol (component of GFL above)
+fuel_carbon_diesel: 0.23   # Carbon fuel levy - Diesel (component of GFL above)
+fuel_total_govt_petrol: 6.35  # Total government levy - Petrol (GFL + RAF, statutory)
+fuel_total_govt_diesel: 6.18  # Total government levy - Diesel (GFL + RAF, statutory)
 
 # Environmental Levy
 electricity_env_levy: 0.035 # R0.035 per kWh
